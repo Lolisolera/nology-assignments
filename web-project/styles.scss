@@ -5,7 +5,7 @@ $color-text: #000;
 $color-background: #fff;
 $color-highlight: #cfcfcf;
 
-// Reset
+
 * {
     margin: 0;
     padding: 0;
@@ -97,6 +97,7 @@ h6 {
 .about {
     padding: 4rem 2rem;
 
+
     h2 {
         font-family: $font-primary;
         font-size: 2rem;
@@ -125,7 +126,8 @@ h6 {
     @media (min-width: 768px) {
         .about-content {
             flex-direction: row;
-            align-items: center;
+            align-items: left;
+
 
             p {
                 flex: 2;
