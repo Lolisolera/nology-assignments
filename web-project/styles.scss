@@ -1,0 +1,130 @@
+// Variables
+$font-primary: 'Georgia', serif;
+$font-secondary: 'Arial', sans-serif;
+$color-text: #000;
+$color-background: #fff;
+$color-highlight: #cfcfcf;
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-secondary;
+    color: $color-text;
+    background-color: $color-background;
+    line-height: 1.6;
+}
+
+// Header
+.header {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $color-highlight;
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            font-family: $font-primary;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $color-text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+
+            li {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+                font-size: 1rem;
+                color: $color-text;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// Hero Section
+.hero {
+    padding: 4rem 2rem;
+
+    .hero-text {
+        max-width: 800px; // Set a maximum width for the text block
+        margin: 0 auto; // Center the block horizontally
+        text-align: left; // Align text to the left
+        padding-left: 5%; // Add padding to slightly offset from the left
+
+        h1 {
+            font-family: $font-primary;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            max-width: 600px; // Restrict paragraph width for better readability
+            margin-top: 0.5rem; // Add some spacing between the heading and paragraph
+            line-height: 1.8; // Improve line spacing
+        }
+    }
+}
+
+// About Section
+.about {
+    padding: 4rem 2rem;
+
+    h2 {
+        font-family: $font-primary;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        p {
+            font-size: 1rem;
+        }
+
+        .about-image {
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        .about-content {
+            flex-direction: row;
+            align-items: center;
+
+            p {
+                flex: 2;
+            }
+
+            .about-image {
+                flex: 1;
+            }
+        }
+    }
+}
