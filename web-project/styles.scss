@@ -19,6 +19,16 @@ body {
     line-height: 1.6;
 }
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+
 // Header
 .header {
     padding: 1rem 2rem;
@@ -32,9 +42,9 @@ body {
         .logo {
             font-family: $font-primary;
             font-size: 1.5rem;
-            font-weight: bold;
             text-transform: uppercase;
             color: $color-text;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -63,10 +73,10 @@ body {
     padding: 4rem 2rem;
 
     .hero-text {
-        max-width: 800px; // Set a maximum width for the text block
-        margin: 0 auto; // Center the block horizontally
-        text-align: left; // Align text to the left
-        padding-left: 5%; // Add padding to slightly offset from the left
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+        padding-left: 5%;
 
         h1 {
             font-family: $font-primary;
@@ -76,9 +86,9 @@ body {
 
         p {
             font-size: 1rem;
-            max-width: 600px; // Restrict paragraph width for better readability
-            margin-top: 0.5rem; // Add some spacing between the heading and paragraph
-            line-height: 1.8; // Improve line spacing
+            max-width: 600px;
+            margin-top: 0.5rem;
+            line-height: 1.8;
         }
     }
 }
@@ -101,14 +111,13 @@ body {
 
         p {
             font-size: 1rem;
+            margin: 0;
         }
 
         .about-image {
             img {
                 max-width: 100%;
                 height: auto;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
         }
     }
