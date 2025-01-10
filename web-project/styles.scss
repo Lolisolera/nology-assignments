@@ -1,10 +1,12 @@
 @use './modules/_typography.scss';
 
+@use './modules/devies.scss';
+
 // @use rule will need us to specify the file it is coming from
 @import './modules/_palette.scss';
 // @import will create global variable accessible directly
 
-@use './modules/devies.scss';
+
 
 // Variables
 $font-primary: 'Georgia', serif;
