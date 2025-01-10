@@ -1,10 +1,6 @@
-@use './modules/_typography.scss';
-
+@use './modules/_typography.scss' as typography;
 @use './modules/devices.scss';
-
-// @use rule will need us to specify the file it is coming from
-@use'./modules/_palette';
-
+@use './modules/_palette';
 
 // Variables
 $font-primary: 'Georgia', serif;
@@ -12,7 +8,6 @@ $font-secondary: 'Arial', sans-serif;
 $color-text: #000;
 $color-background: #fff;
 $color-highlight: #cfcfcf;
-
 
 * {
     margin: 0;
@@ -25,85 +20,90 @@ body {
     color: $color-text;
     background-color: $color-background;
     line-height: 1.6;
-}
+    font-size: typography.$font-size-base; // Use typography variable for base font size
 
+    // Tablet and up (for larger screens)
+    @include devices.tablet {
+        font-size: typography.$font-size-base + 0.125rem; // 0.125rem is equivalent to 2px
+    }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 300;
+    // Laptop and up (for even larger screens)
+    @include devices.laptop {
+        font-size: typography.$font-size-base + 0.125rem; // 0.125rem for the increment
+    }
 }
 
 // Header
 .header {
-    padding: 1rem 2rem;
+    padding: typography.$default-margin 2rem; // Correct usage of typography variables
     border-bottom: 1px solid $color-highlight;
 
     .navigation {
-        display: flex; // Align children horizontally
-        justify-content: space-between; // Push logo to left and nav-links to right
-        align-items: center; // Center vertically
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         .logo {
             font-family: $font-primary;
             font-size: 1.5rem;
             text-transform: uppercase;
             color: $color-text;
-            text-decoration: none; // Remove underline
+            text-decoration: none;
         }
 
         .nav-links {
-            display: flex; // Align links horizontally
-            gap: 2rem; // Space between links
+            display: flex;
+            gap: 2rem;
 
             li {
-                list-style: none; // Remove bullet points
+                list-style: none;
             }
 
             a {
-                text-decoration: none; // Remove underline
-                font-size: 1rem;
+                text-decoration: none;
+                font-size: typography.$font-size-base; // Use typography variable
                 color: $color-text;
 
                 &:hover {
-                    text-decoration: underline; // Optional hover effect
+                    text-decoration: underline; // Hover effect
                 }
             }
         }
     }
 
-    // Responsive for smaller screens
-    @media (max-width: 767px) {
+    // Mobile-first approach (tablet and below)
+    @include devices.phone {
         .navigation {
-            flex-direction: column; // Stack logo and links vertically
-            align-items: center; // Center everything horizontally
+            flex-direction: column;
+            align-items: center;
 
             .nav-links {
-                flex-direction: column; // Stack links vertically
-                gap: 1rem; // Smaller spacing between links
+                flex-direction: column;
+                gap: typography.$default-margin; // Correct usage of typography variable
             }
         }
     }
-}
 
+    // Apply tablet and larger screens
+    @include devices.tablet {
+        .navigation {
+            flex-direction: row;
+            justify-content: space-between;
 
-// Media query for larger screens
-@media (min-width: 768px) {
-    .navigation {
-        flex-direction: row; // Align logo and nav-links horizontally
-        justify-content: space-between; // Push logo to left and nav-links to right
+            .nav-links {
+                flex-direction: row;
+                gap: 2rem; // Increase space between links
+            }
+        }
+    }
 
-        .nav-links {
-            flex-direction: row; // Display links horizontally
-            gap: 2rem; // Increase spacing between links
+    // Apply laptop and larger screens
+    @include devices.laptop {
+        .navigation {
+            padding: 0 2rem;
         }
     }
 }
-
-
 
 // Hero Section
 .hero {
@@ -122,10 +122,17 @@ h6 {
         }
 
         p {
-            font-size: 1rem;
+            font-size: typography.$font-size-base; // Use typography variable for base font size
             max-width: 600px;
             margin-top: 0.5rem;
             line-height: 1.8;
+        }
+    }
+
+    // Apply responsiveness for tablet and larger screens
+    @include devices.tablet {
+        .hero-text {
+            padding-left: 10%;
         }
     }
 }
@@ -133,7 +140,6 @@ h6 {
 // About Section
 .about {
     padding: 4rem 2rem;
-
 
     h2 {
         font-family: $font-primary;
@@ -148,7 +154,7 @@ h6 {
         gap: 2rem;
 
         p {
-            font-size: 1rem;
+            font-size: typography.$font-size-base; // Use typography variable for base font size
             margin: 0;
         }
 
@@ -160,11 +166,11 @@ h6 {
         }
     }
 
-    @media (min-width: 768px) {
+    // Apply tablet and up (mobile-first approach)
+    @include devices.tablet {
         .about-content {
             flex-direction: row;
             align-items: left;
-
 
             p {
                 flex: 2;
