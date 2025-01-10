@@ -43,38 +43,67 @@ h6 {
     border-bottom: 1px solid $color-highlight;
 
     .navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: flex; // Align children horizontally
+        justify-content: space-between; // Push logo to left and nav-links to right
+        align-items: center; // Center vertically
 
         .logo {
             font-family: $font-primary;
             font-size: 1.5rem;
             text-transform: uppercase;
             color: $color-text;
-            text-decoration: none;
+            text-decoration: none; // Remove underline
         }
 
         .nav-links {
-            display: flex;
-            gap: 2rem;
+            display: flex; // Align links horizontally
+            gap: 2rem; // Space between links
 
             li {
-                list-style: none;
+                list-style: none; // Remove bullet points
             }
 
             a {
-                text-decoration: none;
+                text-decoration: none; // Remove underline
                 font-size: 1rem;
                 color: $color-text;
 
                 &:hover {
-                    text-decoration: underline;
+                    text-decoration: underline; // Optional hover effect
                 }
             }
         }
     }
+
+    // Responsive for smaller screens
+    @media (max-width: 767px) {
+        .navigation {
+            flex-direction: column; // Stack logo and links vertically
+            align-items: center; // Center everything horizontally
+
+            .nav-links {
+                flex-direction: column; // Stack links vertically
+                gap: 1rem; // Smaller spacing between links
+            }
+        }
+    }
 }
+
+
+// Media query for larger screens
+@media (min-width: 768px) {
+    .navigation {
+        flex-direction: row; // Align logo and nav-links horizontally
+        justify-content: space-between; // Push logo to left and nav-links to right
+
+        .nav-links {
+            flex-direction: row; // Display links horizontally
+            gap: 2rem; // Increase spacing between links
+        }
+    }
+}
+
+
 
 // Hero Section
 .hero {
