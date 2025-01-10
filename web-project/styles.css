@@ -149,32 +149,49 @@ body {
   }
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  /* 9 equal columns */
-  gap: 1rem;
-  /* Space between items */
+.skills {
+  padding: 2rem;
+}
+.skills .skills-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-bottom: 2rem;
 }
 @media only screen and (min-width: 361px) and (max-width: 1365px) {
-  .container {
+  .skills .skills-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.skills .skills-header h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+.skills .skills-header p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.skills .container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1rem;
+}
+@media only screen and (min-width: 361px) and (max-width: 1365px) {
+  .skills .container {
     grid-template-columns: repeat(6, 1fr);
-    /* 6 columns for tablet */
   }
 }
 @media only screen and (max-width: 360px) {
-  .container {
+  .skills .container {
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columns for mobile */
   }
 }
-
-.img-icon {
+.skills .img-icon {
   max-width: 100%;
-  /* Make images responsive */
   height: auto;
   aspect-ratio: 1/1;
-  /* Ensure square dimensions */
   object-fit: contain;
-  /* Maintain aspect ratio within the grid cells */
 }
