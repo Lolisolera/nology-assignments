@@ -1,11 +1,9 @@
-@use 'web-project/modules/_typography.scss';
+@use './modules/_typography.scss';
 
-@use 'web-project/modules/devices.scss';
+@use './modules/devices.scss';
 
 // @use rule will need us to specify the file it is coming from
-@import 'web-project/modules/_palette.scss';
-// @import will create global variable accessible directly
-
+@use'./modules/_palette';
 
 
 // Variables

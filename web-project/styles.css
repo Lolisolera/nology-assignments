@@ -1,17 +1,109 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use 'web-project/modules/_typography.scss';
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   styles.scss 1:1  root stylesheet */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use 'web-project/modules/_typography.scss';\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   styles.scss 1:1  root stylesheet";
+body {
+  font-family: "Arial", sans-serif;
+  color: #000;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+.header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #cfcfcf;
+}
+.header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .navigation .logo {
+  font-family: "Georgia", serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+}
+.header .navigation .nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.header .navigation .nav-links li {
+  list-style: none;
+}
+.header .navigation .nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #000;
+}
+.header .navigation .nav-links a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 4rem 2rem;
+}
+.hero .hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 5%;
+}
+.hero .hero-text h1 {
+  font-family: "Georgia", serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero .hero-text p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin-top: 0.5rem;
+  line-height: 1.8;
+}
+
+.about {
+  padding: 4rem 2rem;
+}
+.about h2 {
+  font-family: "Georgia", serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.about .about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.about .about-content p {
+  font-size: 1rem;
+  margin: 0;
+}
+.about .about-content .about-image img {
+  max-width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .about .about-content {
+    flex-direction: row;
+    align-items: left;
+  }
+  .about .about-content p {
+    flex: 2;
+  }
+  .about .about-content .about-image {
+    flex: 1;
+  }
 }
