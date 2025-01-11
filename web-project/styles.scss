@@ -368,29 +368,25 @@ body {
                 }
 
                 .cv {
-                    width: 32px;
+                    width: 38px;
 
-                    &:hover {
-                        transform: scale(1.1);
-                        color: green;
+                }
+
+                @include devices.tablet {
+                    ul li a {
+                        width: 3.5rem;
+                        height: 3.5rem;
+                        font-size: 1.8rem;
                     }
                 }
-            }
-        }
 
-        @include devices.tablet {
-            ul li a {
-                width: 3.5rem;
-                height: 3.5rem;
-                font-size: 1.8rem;
-            }
-        }
-
-        @include devices.phone {
-            ul li a {
-                width: 3rem;
-                height: 3rem;
-                font-size: 1.6rem;
+                @include devices.phone {
+                    ul li a {
+                        width: 3rem;
+                        height: 3rem;
+                        font-size: 1.6rem;
+                    }
+                }
             }
         }
     }

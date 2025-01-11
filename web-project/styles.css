@@ -310,21 +310,17 @@ body {
   margin: 0;
 }
 .contact .socials ul li .cv {
-  width: 32px;
-}
-.contact .socials ul li .cv:hover {
-  transform: scale(1.1);
-  color: green;
+  width: 38px;
 }
 @media only screen and (min-width: 361px) and (max-width: 1365px) {
-  .contact .socials ul li a {
+  .contact .socials ul li ul li a {
     width: 3.5rem;
     height: 3.5rem;
     font-size: 1.8rem;
   }
 }
 @media only screen and (max-width: 360px) {
-  .contact .socials ul li a {
+  .contact .socials ul li ul li a {
     width: 3rem;
     height: 3rem;
     font-size: 1.6rem;
