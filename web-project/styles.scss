@@ -2,7 +2,7 @@
 @use './modules/devices.scss';
 @use './modules/_palette';
 
-// Variables
+// Variables for 
 $font-primary: 'Georgia', serif;
 $font-secondary: 'Arial', sans-serif;
 $color-text: #000;
@@ -251,10 +251,9 @@ body {
 
 .tile {
     background-color: #f5f3f4;
-    height: 40rem;
+    height: 35rem;
     width: 25rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    border-radius: 0.5rem;
     transition: all 0.2s;
     padding: 1.5rem;
     margin: 1.5rem;
@@ -280,7 +279,7 @@ body {
     font-size: 2rem;
     font-weight: 600;
     padding: 1rem 0;
-    color: #EF233C;
+    color: $color-text;
     margin: 0px;
 }
 
@@ -298,4 +297,91 @@ body {
 .fa-github {
 
     margin-left: 220px;
+}
+
+//Footer section
+.contact {
+    background-color: black; // Replace with your desired background color
+    padding: 4rem 2rem;
+
+    .footer {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        .footer-heading {
+            font-size: 2rem;
+
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-button {
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            color: black;
+            background-color: white;
+            border: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: green;
+            }
+        }
+    }
+
+    .socials {
+        background-color: black; // Black background for the socials section
+        padding: 2rem;
+        text-align: center;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+
+            li {
+                a {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: black; // Circular white background
+                    color: white;
+                    width: 4rem;
+                    height: 4rem;
+                    border-radius: 50%;
+                    font-size: 2rem;
+                    transition: transform 0.3s, color 0.3s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        color: green;
+                    }
+
+                    i {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        @include devices.tablet {
+            ul li a {
+                width: 3.5rem;
+                height: 3.5rem;
+                font-size: 1.8rem;
+            }
+        }
+
+        @include devices.phone {
+            ul li a {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.6rem;
+            }
+        }
+    }
 }
