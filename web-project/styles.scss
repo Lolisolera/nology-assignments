@@ -301,7 +301,7 @@ body {
 
 //Footer section
 .contact {
-    background-color: black; // Replace with your desired background color
+    background-color: black;
     padding: 4rem 2rem;
 
     .footer {
@@ -331,7 +331,7 @@ body {
     }
 
     .socials {
-        background-color: black; // Black background for the socials section
+        background-color: black;
         padding: 2rem;
         text-align: center;
 
@@ -363,6 +363,16 @@ body {
 
                     i {
                         margin: 0;
+                    }
+
+                }
+
+                .cv {
+                    width: 32px;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        color: green;
                     }
                 }
             }
