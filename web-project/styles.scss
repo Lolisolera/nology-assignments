@@ -140,17 +140,24 @@ body {
 .about {
     padding: 4rem 2rem;
 
-    h2 {
-        font-family: $font-primary;
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        text-transform: uppercase;
-    }
-
     .about-content {
         display: flex;
         flex-direction: column; // Mobile-first: stack content vertically
         gap: 2rem;
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        h2 {
+            font-family: $font-primary;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            align-self: flex-start; // Aligns the heading to the left of the container
+        }
 
         p {
             font-size: typography.$font-size-base; // typography variable for base font size
@@ -168,16 +175,17 @@ body {
     // Tablet view and larger
     @include devices.tablet {
         display: flex;
-        align-items: flex-start;
-        gap: 2rem; // Space between the image and content
+        align-items: center; // Aligns the content vertically center
+        justify-content: space-between; // Space between the image and text
+        gap: 4rem; // Space between the image and content
 
         .about-content {
-            flex: 2; // Take up more space for text content
-            flex-direction: column;
+            flex: 2;
+            flex-direction: column; // Keeps the text stacked
         }
 
         .about-image {
-            flex: 1; // Image takes up less space
+            flex: 1;
             display: flex;
             justify-content: center; // Center the image horizontally
             align-items: center; // Align the image vertically
@@ -189,6 +197,7 @@ body {
         gap: 4rem; // Increase the gap between text and image on larger screens
     }
 }
+
 
 //skills section
 .skills {
