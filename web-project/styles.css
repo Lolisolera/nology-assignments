@@ -253,36 +253,36 @@ body {
 }
 
 .contact {
-  background-color: black;
   padding: 4rem 2rem;
 }
-.contact .footer {
+.contact .contact {
   text-align: center;
   margin-bottom: 2rem;
 }
-.contact .footer .footer-heading {
+.contact .contact .contact-heading {
   font-size: 2rem;
-  color: white;
+  color: black;
   margin-bottom: 2rem;
 }
-.contact .footer .contact-button {
+.contact .contact .contact-button {
   font-size: 2rem;
   padding: 1rem 2rem;
   color: black;
   background-color: white;
-  border: none;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s;
+  border: 2px solid black;
+  transition: background-color 0.3s, border-color 0.3s;
 }
-.contact .footer .contact-button:hover {
+.contact .contact .contact-button:hover {
   background-color: green;
+  border-color: green;
 }
-.contact .socials {
+
+footer .socials {
   background-color: black;
   padding: 2rem;
   text-align: center;
 }
-.contact .socials ul {
+footer .socials ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -290,7 +290,7 @@ body {
   justify-content: center;
   gap: 2rem;
 }
-.contact .socials ul li a {
+footer .socials ul li a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -302,25 +302,21 @@ body {
   font-size: 2rem;
   transition: transform 0.3s, color 0.3s;
 }
-.contact .socials ul li a:hover {
-  transform: scale(1.1);
-  color: green;
-}
-.contact .socials ul li a i {
+footer .socials ul li a i {
   margin: 0;
 }
-.contact .socials ul li .cv {
+footer .socials ul li .cv {
   width: 38px;
 }
 @media only screen and (min-width: 361px) and (max-width: 1365px) {
-  .contact .socials ul li ul li a {
+  footer .socials ul li ul li a {
     width: 3.5rem;
     height: 3.5rem;
     font-size: 1.8rem;
   }
 }
 @media only screen and (max-width: 360px) {
-  .contact .socials ul li ul li a {
+  footer .socials ul li ul li a {
     width: 3rem;
     height: 3rem;
     font-size: 1.6rem;
