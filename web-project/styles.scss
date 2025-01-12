@@ -156,7 +156,7 @@ body {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            align-self: flex-start; // Aligns the heading to the left of the container
+            align-self: flex-start;
         }
 
         p {
@@ -181,14 +181,14 @@ body {
 
         .about-content {
             flex: 2;
-            flex-direction: column; // Keeps the text stacked
+            flex-direction: column;
         }
 
         .about-image {
             flex: 1;
             display: flex;
-            justify-content: center; // Center the image horizontally
-            align-items: center; // Align the image vertically
+            justify-content: right;
+            align-items: center;
         }
     }
 
