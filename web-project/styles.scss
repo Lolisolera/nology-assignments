@@ -300,34 +300,38 @@ body {
 }
 
 // contact section
+
+
+
 .contact {
+    text-align: center;
+    margin-bottom: 2rem;
     padding: 4rem 2rem;
 
-    .contact {
-        text-align: center;
+
+    .contact-heading {
+        font-size: 2rem;
+        color: black;
         margin-bottom: 2rem;
 
-        .contact-heading {
-            font-size: 2rem;
-            color: black;
-            margin-bottom: 2rem;
-        }
+    }
 
-        .contact-button {
-            font-size: 2rem;
-            padding: 1rem 2rem;
-            color: black;
-            background-color: white; // White background for the button
-            border: 2px solid black; // Black border for the button
-            transition: background-color 0.3s, border-color 0.3s;
+    .contact-button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        color: black;
+        background-color: white; // White background for the button
+        border: 2px solid black; // Black border for the button
+        transition: background-color 0.3s, border-color 0.3s;
+        text-decoration: none;
 
-            &:hover {
-                background-color: green;
-                border-color: green; // Change border color on hover
-            }
+        &:hover {
+            background-color: green;
+            border-color: green; // Change border color on hover
         }
     }
 }
+
 
 //footer section
 
