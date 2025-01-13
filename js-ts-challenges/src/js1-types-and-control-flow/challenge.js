@@ -84,6 +84,16 @@ const thing = "I am a thing";
 
 export const findType = () => {
   // Write your code here
+  const thingType = typeof thing;
+  if (thingType === "string") {
+    return "This is a string";
+  } else if (thingType === "number") {
+    return "This is a number";
+  } else if (thingType === "boolean") {
+    return "This is a boolean";
+  } else {
+    return "I don't know what this thing is";
+  }
 };
 
 /**
@@ -91,12 +101,19 @@ export const findType = () => {
  * This means it must still work even if the name is different and return something if name provided is incorrect.
  * Name tag rules are: The name must be less than or equal to 8 characters and begin with a capital letter.
  *
+ * 
  * @returns {boolean} true || false
  */
 const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = () => {
   // Write your code here
+  const firstLetterOfName = nameTagOption.substring(0, 1);
+  const isValidName =
+    nameTagOption.length <= 8 &&
+    firstLetterOfName === firstLetterOfName.toUpperCase();
+
+  return isValidName;
 };
 
 /* Advanced Challenges */
@@ -111,6 +128,9 @@ const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
   // Write your code here
+  const convertedString = parseFloat(stringToConvert);
+
+  return convertedString;
 };
 
 /**
@@ -125,6 +145,10 @@ const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
   // Write your code here
+  const regex = /([A-Z])/g;
+  const hasUpperCaseLetters = regex.test(stringWithUppercaseLetters);
+
+  return hasUpperCaseLetters;
 };
 
 /* Expert Challenges */
@@ -140,5 +164,9 @@ export const getHasUppercaseLetters = () => {
 const pascalCaseVariableName = "IWantToBeSnakeCase";
 
 export const convertPascalCaseToSnakeCase = () => {
-  // Write your code here
+  const splitWords = pascalCaseVariableName.split(/(?=[A-Z])/);
+  const joinedWordsWithUnderscores = splitWords.join("_");
+  const snakeCase = joinedWordsWithUnderscores.toLowerCase();
+
+  return snakeCase;
 };
