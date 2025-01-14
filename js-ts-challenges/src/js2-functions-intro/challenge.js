@@ -82,7 +82,7 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  const tempInFahrenheit = (tempInCelsius * 9) / 5 + 32;
+  const tempInFahrenheit = (tempInCelsius * 9) / 5 + 32;//this is the generic formula
 
   const temperatureString =
     tempInCelsius +
@@ -128,7 +128,7 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  if (score < 0 || score > 100 || typeof score !== "number") {
+  if (score < 0 || score > 100 || typeof score !== "number") { //typeof ensures that only a number is passed and evaluated
     return "Score unavailable";
   }
 
@@ -154,11 +154,13 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  const PI = Math.PI;
-  const area = PI * radius ** 2;
-  const areaTo2DecimalPlaces = area.toFixed(2);
+  const PI = Math.PI;//is a property that provides the constant of pi(3.14.16)
+  const area = PI * radius ** 2;//this is the area of a circle formula.
+  const areaTo2DecimalPlaces = area.toFixed(2);//area.toFixed(2) converts the area to a string, rounded to two decimal places.
+  //This ensures the returned value has a precision of two decimal places.
 
-  return parseFloat(areaTo2DecimalPlaces);
+  return parseFloat(areaTo2DecimalPlaces);//parseFloat converts the rounded string back into a number.
+  //The function then returns the final rounded area as a numerical value.
 };
 
 /* Expert Challenges */
@@ -197,4 +199,4 @@ export const getStudentSummary = (score, name) => {
     default:
       return `My apologies ${name}, there's been an error in processing your grade.`;
   }
-};
+}; //${name} are template literals.

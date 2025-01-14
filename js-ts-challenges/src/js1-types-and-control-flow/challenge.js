@@ -128,9 +128,11 @@ const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
   // Write your code here
-  const convertedString = parseFloat(stringToConvert);
+  const convertedString = parseFloat(stringToConvert);//parseFloat is a JavaScript method that takes a string as input and converts it into a floating-point number.
+  //In this case, "14.45" is converted into the number 14.45.
 
-  return convertedString;
+
+  return convertedString;//The function returns the numerical value 14.45, which is the result of converting the string.
 };
 
 /**
@@ -145,7 +147,7 @@ const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
   // Write your code here
-  const regex = /([A-Z])/g;
+  const regex = /([A-Z])/g;//is a sequence of characters that defines a search pattern.
   const hasUpperCaseLetters = regex.test(stringWithUppercaseLetters);
 
   return hasUpperCaseLetters;
