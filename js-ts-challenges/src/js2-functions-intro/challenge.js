@@ -154,7 +154,11 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  return;
+  const PI = Math.PI;
+  const area = PI * radius ** 2;
+  const areaTo2DecimalPlaces = area.toFixed(2);
+
+  return parseFloat(areaTo2DecimalPlaces);
 };
 
 /* Expert Challenges */
