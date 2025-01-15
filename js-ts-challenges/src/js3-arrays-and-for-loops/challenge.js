@@ -73,7 +73,7 @@ export const totalRange = (rangeMax) => {
   //formula sum = n*(n+1)/2
 };
 
-/**CONTINUE FROM HERE!
+/**
  * A function that takes an array and returns a NEW ARRAY where the last item has been moved to the front of the array and removed from the back.
  *
  * @param {string[]} itemsArr ["Tony","John","Dave"]
@@ -81,10 +81,13 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  if (itemsArr.length === 0) return []; // Handle empty array case
+  const lastItem = itemsArr[itemsArr.length - 1]; // Get the last item
+  const restOfItems = itemsArr.slice(0, -1); // Get the rest of the items
+  return [lastItem, ...restOfItems]; // Combine last item at the front with the rest
 };
 
-/**
+/**CONTINUE FROM HERE!
  * Read this article on how to clone an array.
  * https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/
  *
