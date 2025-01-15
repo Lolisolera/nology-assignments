@@ -67,8 +67,12 @@ body {
                     text-decoration: underline; // Hover effect
                 }
             }
+
+
         }
     }
+
+
 
     // Mobile-first approach (tablet and below)
     @include devices.phone {
@@ -79,6 +83,7 @@ body {
             .nav-links {
                 flex-direction: column;
                 gap: typography.$default-margin;
+                display: none; // this shouldn't dispay the nav-bar in mobile view??
             }
         }
     }
