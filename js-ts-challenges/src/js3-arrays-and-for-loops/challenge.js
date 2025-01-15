@@ -84,10 +84,10 @@ export const moveFirstAndLastItems = (itemsArr) => {
   if (itemsArr.length === 0) return []; // Handle empty array case
   const lastItem = itemsArr[itemsArr.length - 1]; // Get the last item
   const restOfItems = itemsArr.slice(0, -1); // Get the rest of the items
-  return [lastItem, ...restOfItems]; // Combine last item at the front with the rest
+  return [lastItem, ...restOfItems]; // Combine last item at the front with the rest using the SPREAD OPERATOR ...
 };
 
-/**CONTINUE FROM HERE!
+/**
  * Read this article on how to clone an array.
  * https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/
  *
@@ -102,9 +102,13 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+
+  const clonedArray = [...numberArr];//cloned array to avoid mutating the input array. I've used the SPREAD OPERATOR to include all of the original numbers of the array.
+
+  return clonedArray.filter((num) => num % 2 !== 0);// I've used the FILTER method to filter the cloned array to keep only odd numbers
 };
 
+/**CONTINUE FROM HERE!
 /* Advanced Challenges */
 
 /**
