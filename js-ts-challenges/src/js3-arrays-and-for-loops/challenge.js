@@ -108,7 +108,7 @@ export const removeEvenNumbers = (numberArr) => {
   return clonedArray.filter((num) => num % 2 !== 0);// I've used the FILTER method to filter the cloned array to keep only odd numbers
 };
 
-/**CONTINUE FROM HERE!
+/*
 /* Advanced Challenges */
 
 /**
@@ -120,10 +120,28 @@ export const removeEvenNumbers = (numberArr) => {
  */
 
 export const generateAverage = (numberArr) => {
-  return;
+
+  if (numberArr.length === 0) {
+    return 0; // Handle empty array case
+  }
+
+  // Calculate the sum of all elements in the array
+  const total = numberArr.reduce((sum, num) => sum + num, 0);//using the reduce method 
+  //to accumulate a sum of all the elements in the numberArr array.
+  //sum is the acumulator that stores the running total
+  //num is the current element being processed in the array.
+
+  // Calculate the average and round to the nearest whole number
+  return Math.round(total / numberArr.length);
 };
 
-/**
+console.log(generateAverage([1, 2, 3])); // Output: 2
+console.log(generateAverage([]));        // Output: 0
+
+
+
+
+/*
  * A function that uses a loop to reverse the order of an Array. It should return a NEW ARRAY and not Mutate the original array.
  *
  * @param {number[]} toReverseArr [1,2,3]
@@ -131,8 +149,23 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return;
+  const clonedArray = [...toReverseArr];
+
+
+  const reversedArray = [];//empty array to store the reversed values
+
+  // Loop through the cloned array in reverse order and push elements into reversedArray
+  for (let i = clonedArray.length - 1; i >= 0; i--) { // i is variable to serve as the loop counter
+    //clonedArray.length - 1 Sets the starting value of i to be the index of the last element in the clonedArray.
+    //This condition checks if i is greater than or equal to 0. The loop continues as long as i is non-negative. Once i reaches -1, the loop will stop.
+    //--i reverse loop
+    reversedArray.push(clonedArray[i]);
+  }
+
+  // Return the new reversed array
+  return reversedArray;
 };
+
 
 /* Expert Challenges */
 
@@ -151,8 +184,29 @@ export const reverseOrder = (toReverseArr) => {
  */
 
 export const generateHighscores = (playersArr, scoresArr) => {
-  return;
+  if (playersArr.length !== scoresArr.length || playersArr.length === 0 || scoresArr.length === 0) {
+    //The 1st condition ensures that the two arrays have the same length.
+    //the 2nd condition checks if either array is empty.
+    return "invalid inputs";
+  }
+
+  return playersArr.map((player, index) => { // the MAP method creates a new array where each element is a string
+    return `P:${index + 1} ${player} scored ${scoresArr[index]}`;
+    //For each player in playersArr, we create a string in the format "P:INDEX PLAYER scored HIGHSCORE", where:
+    //index + 1 is used for the player index, starting from 1 (not 0).
+    //player refers to the player name from playersArr.
+    //scoresArr[index] gets the corresponding score from the scoresArr.
+  });
 };
+
+const players = ["Tony", "John", "Dave"];
+const scores = [45, 55, 66];
+
+console.log(generateHighscores(players, scores));
+// Output: ["P:1 Tony scored 45", "P:2 John scored 55", "P:3 Dave scored 66"]
+
+
+
 
 /**
  * A function that takes a string and creates a simple encrypted message.
@@ -177,5 +231,25 @@ export const generateHighscores = (playersArr, scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+  // I've created three arrays to hold the groups of letters
+  const list1 = [];
+  const list2 = [];
+  const list3 = [];
+
+  // Loop through the string, distributing letters into the three lists
+  for (let i = 0; i < toEncrypt.length; i++) { //The loop iterates over each character of the input string (toEncript)
+    if (i % 3 === 0) {//i%3 will determine which list the current letter belongs to:
+      list1.push(toEncrypt[i]); // Add to the first list
+    } else if (i % 3 === 1) {
+      list2.push(toEncrypt[i]); // Add to the second list
+    } else {
+      list3.push(toEncrypt[i]); // Add to the third list
+    }
+  }
+
+  return list1.join('') + list2.join('') + list3.join('');
+  // Join each list into a string and concatenate them
 };
+
+console.log(encryptString("encrypted")); // Output: "ertnyecpd"
+
