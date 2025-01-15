@@ -20,7 +20,16 @@
  */
 
 export const createRecipeString = (ingredientsArr) => {
-  return;
+  let recipeString = '';
+
+  for (let i = 0; i < ingredientsArr.length; i++) {
+    recipeString += ingredientsArr[i];
+    if (i < ingredientsArr.length - 1) {
+      recipeString += '+'; //+= appends "+" to the string.
+    }
+  }
+
+  return recipeString;
 };
 
 /**
@@ -31,7 +40,7 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+  return [itemsArr[0], itemsArr.slice(-1)[0]];
 };
 
 /**
@@ -42,7 +51,11 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+  let sum = 0;
+  for (let i = 0; i < scoreArr.length; i++) {
+    sum += scoreArr[i];
+  }
+  return sum;
 };
 
 /* Intermediate Challenges */
@@ -56,10 +69,11 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  return (rangeMax * (rangeMax + 1)) / 2;//The sum of numbers from 0 to n can be calculated using the formula
+  //formula sum = n*(n+1)/2
 };
 
-/**
+/**CONTINUE FROM HERE!
  * A function that takes an array and returns a NEW ARRAY where the last item has been moved to the front of the array and removed from the back.
  *
  * @param {string[]} itemsArr ["Tony","John","Dave"]
