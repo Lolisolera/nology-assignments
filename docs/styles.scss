@@ -2,7 +2,7 @@
 @use './modules/devices.scss';
 @use './modules/_palette';
 
-// Variables for 
+// Variables for
 $font-primary: 'Georgia', serif;
 $font-secondary: 'Arial', sans-serif;
 $color-text: #000;
@@ -33,7 +33,7 @@ body {
     }
 }
 
-// Header
+//
 .header {
     padding: typography.$default-margin 2rem;
 
@@ -173,6 +173,7 @@ p {
     .about-image {
         order: 2;
         margin-left: 2rem;
+        margin-right: 2rem;
         margin-bottom: 0;
     }
 
@@ -224,14 +225,10 @@ p {
 
 .about-content h2 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: 1rem;
+    padding-left: 2rem;
 }
-
-
-
-
-
 
 //skills section
 .skills {
@@ -242,7 +239,7 @@ p {
         flex-direction: column;
         align-items: flex-start;
         gap: 3rem; // Space between h2 and paragraph
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
 
         @include devices.tablet {
             flex-direction: row; // Arrange h2 and paragraph side by side on tablets and larger
@@ -291,6 +288,14 @@ p {
 }
 
 //Portfolio section
+
+.portfolio-header h2 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
 .flexible {
     display: flex;
     flex-flow: row wrap;
@@ -331,6 +336,8 @@ p {
     padding: 1rem 0;
     color: $color-text;
     margin: 0px;
+    text-align: left;
+    padding-left: 2rem;
 }
 
 .tile p {
