@@ -61,7 +61,7 @@ export const createListOfPossessions = (possessionsArr, name) => {
   return possessionList;//The map method generates a new array, which is stored in the variable possessionList.
 };
 
-
+//*FROM HERE
 /* Intermediate Challenges */
 
 /**
@@ -82,7 +82,8 @@ export const createListOfPossessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  // Split the string by the "+" symbol, then map over the resulting array to convert each element to a number
+  return numberString.split('+').map(Number);//the split method breaks the string into an array of substrings, and then the  map method converts each substring into a number.
 };
 
 /**
