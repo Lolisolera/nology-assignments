@@ -20,8 +20,12 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  return booleanArr.filter(value => value === true);//The .filter() method creates a new array containing only the elements that satisfy the given condition.
 };
+const booleans = [true, true, false, false, true];
+console.log(removeFalseValues(booleans));
+// Output: [true, true, true]
+
 
 /**
  * A function that takes an array of numbers that are between 0 and 1.
@@ -32,8 +36,14 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
-};
+
+  return numbersArr.map(num => `${num * 100}%`);//the map method creates a new array with numbers converted to percentages
+};//each number in numbersArr is multiplied by 100 to convert it to a percentage, and "%" is appended to create the desired format.
+//Non-Mutation - The original array numbersArr is not modified. The function generates and returns a new array.
+const numbers = [1, 0.5, 0.7, 0.25];
+console.log(createPercentageList(numbers));
+// Output: ["100%", "50%", "70%", "25%"]
+
 
 /**
  * A function that takes an array of possessions and a name.
@@ -45,8 +55,12 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPossessions = (possessionsArr, name) => {
-  return;
+  const possessionList = possessionsArr.map(//the map method iterate over each element in the possessionsArr array and creates a new array without changing the original
+    (possession) => name + " " + possession //combines the name string with the current possession
+  );
+  return possessionList;//The map method generates a new array, which is stored in the variable possessionList.
 };
+
 
 /* Intermediate Challenges */
 
