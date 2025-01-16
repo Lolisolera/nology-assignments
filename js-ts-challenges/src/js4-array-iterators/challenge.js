@@ -61,7 +61,7 @@ export const createListOfPossessions = (possessionsArr, name) => {
   return possessionList;//The map method generates a new array, which is stored in the variable possessionList.
 };
 
-//*FROM HERE
+
 /* Intermediate Challenges */
 
 /**
@@ -95,8 +95,18 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+  // Split the string into an array of numbers
+  const numbers = numberString.split('+').map(Number);//The split('+') method splits the string into an array of substrings based on the + delimiter.
+  //map(Number) converts each substring into a number.
+
+  // Map each number to 'odd' or 'even' based on its value
+  const result = numbers.map(num => (num % 2 === 0 ? 'even' : 'odd'));//the map method iterates over the numbers.
+  //For each number, check if num % 2 === 0 (even) or num % 2 !== 0 (odd). 
+  return result;
 };
+
+console.log(createOddEvenArray("1+2+3+4+5")); // Output: ['odd', 'even', 'odd', 'even', 'odd']
+
 
 /**
  * A function that takes an array of book titles and a search term.
@@ -108,8 +118,24 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
-};
+  return booksArr.filter(book => book.toLowerCase().includes(searchTerm.toLowerCase()));
+};//The filter method iterates over each book title in booksArr and keep only the ones that satisfy the condition.
+//Convert both the book and searchTerm to lowercase using toLowerCase() to ensure the search is case-insensitive.
+//the includes method checks if the searchTerm is a substring of the current book.
+
+
+const books = [
+  "JavaScript: The Definitive Guide",
+  "JavaScript: The Good Parts",
+  "The Google story",
+  "React for Dummies"
+];
+const searchTerm = "Google";
+
+console.log(filterBooksBySearch(books, searchTerm));//The filtered array containing matching titles is returned.
+// Output: ["The Google story"]
+
+
 
 /* Advanced Challenges */
 
@@ -126,15 +152,20 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
-    const cleanStr = string.trim().toLowerCase();
-    return cleanStr;
-  });
 
+  const cleanedArr = stringArr.map((string) => string.trim().toLowerCase());
+  //use map instead of forEach.The map method is used to create a new array by applying the transformation (trim and toLowerCase) to each element.
+  //This ensures the new created cleanedArr contains the modified strings.
   const joinedString = cleanedArr.join("+");
-
+  //the join method combines the elements into a single string, separated by "+".
   return joinedString;
 };
+
+
+console.log(formatStringArray(["  dIsco", " ShOes "]));
+// Output: "disco+shoes"
+
+
 
 /**
  * A function that takes a string, cleans it and formats it based on a condition.
@@ -150,12 +181,29 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+  // Remove non-letter characters and split the string into an array of letters
+  const cleanedString = string.replace(/[^a-zA-Z]/g, "");//The replace method removes all characters that are not letters (a-z, A-Z).
+  //[^a-zA-Z] matches everything except letters, and the g flag ensures all such characters are removed.
+
+
+  // Format the letters based on their index- splitting into an array
+  const formattedArray = cleanedString.split("").map((char, index) => {//After cleaning, the string is split into an array of individual letters using split("").
+    //The map method is used to iterate over the array of letters.
+    return index % 2 === 0 ? char.toUpperCase() : char.toLowerCase();
+    //If the index is even, the letter is transformed to uppercase using toUpperCase().
+    //If the index is odd, the letter is transformed to lowercase using toLowerCase().
+  });
+
+  return formattedArray;// the function returns an array of formatted letters.
 };
 
-/**
- * Expert Challenges
- */
+console.log(formatString(" 22 $$He LL--O!%^& "));
+// Output: [ 'H', 'e', 'L', 'l', 'O' ]   -- this satisfies the condition
+
+
+
+
+//* Expert Challenges
 
 /**
  * A function that takes an array and FizzBuzzes it.
@@ -177,5 +225,50 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
+
+  // Step 1: Filter out non-positive numbers and invalid strings
+  const cleanedArray = mixedArray.filter((item) => {//The filter method keeps only items that are positive numbers 
+    // Keep only positive numbers or positive numbers as strings
+    return (
+      (typeof item === "number" && item > 0) ||
+      (typeof item === "string" && !isNaN(Number(item)) && Number(item) > 0)
+    );//The filter method keeps only items that are positive numbers 
+  });
+
+  // Step 2: Apply FizzBuzz logic
+  const fizzBuzzArray = cleanedArray.map((item) => {//The map method iterates over the filtered array.
+    const num = typeof item === "string" ? Number(item) : item; // Convert strings to numbers
+    //typeof item === "string":checks if the variable item is of type string.
+    //If the condition (typeof item === "string") is true, the value of num will be the result of Number(item).
+    //If the condition is false, the value of num will be item itself.
+    //Number(item):If item is a string (like "3"), Number(item) converts it to a number (e.g., 3).
+    //If the string can't be converted to a valid number (e.g., "abc"), it returns NaN. In this code, invalid strings are filtered out earlier, so this won't happen here.
+    //item: if item is already a number, no conversion is needed, and it’s directly assigned to num.
+
+    //see EXAMPLE at the end of this code
+    if (num % 3 === 0 && num % 5 === 0) {
+      return "FizzBuzz";
+    } else if (num % 3 === 0) {
+      return "Fizz";
+    } else if (num % 5 === 0) {
+      return "Buzz";
+    } else {
+      return num.toString(); // Convert other numbers to strings
+    }
+  });
+
+  return fizzBuzzArray;
 };
+
+console.log(fizzBuzz([-1, "disco", "3", 5, "15", 2, 0]));
+// Output: [ "Fizz", "Buzz", "FizzBuzz", "2" ]
+
+
+//EXAMPLE:
+/*If item = "15" (a string):
+
+typeof item === "string" is true, so num = Number(item) becomes 15.
+If item = 7 (a number):
+
+typeof item === "string" is false, so num = item remains 7.
+This ensures the rest of the logic in the code can safely treat num as a number.*/
