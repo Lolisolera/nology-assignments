@@ -16,27 +16,50 @@
  * The scores will be numbers.
  *
  * @param {number[]} numberArr [7, 7, 6, 2, 3, 2, 3]
- * @return {number} 30
+ * @return {number} 30  //this is The total of the scores
  */
 
-export const totalScoresArr = (scoresArr) => {
-  return;
+export const totalScoresArr = (numberArr) => {//numberArr is the input parameter, which expects an array of numbers.
+  return numberArr.reduce((total, score) => total + score, 0);//The reduce function iterates over the array and calculates a single cumulative value (in this case, the total).
+  //total: The accumulated value (starts at 0 due to the initial value).
+  //score: The current element of the array being processed.
+  //total + score adds the current score to the total.
+  //The 0 after the callback function initializes the accumulator total to 0.
 };
+
+console.log(totalScoresArr([7, 7, 6, 2, 3, 2, 3])); // Output: 30
+//The array [7, 7, 6, 2, 3, 2, 3] is passed as an argument.
+
+
 
 /**
  * A function that turns a string into an array and uses a ARRAY ITERATOR to reverse it.
  * It will need to keep spaces between words.
  * Once reversed it will need to turn the array back into a string.
  *
- * @param {string} toReverse "reverse"
- * @return {string} "esrever"
+ * @param {string} toReverse "reverse"  //this is the string to be reversed
+ * @return {string} "esrever"           //theis is the reversed string
  */
 
 export const reverseString = (toReverse) => {
-  return;
+
+  const charArray = toReverse.split("");// Split the string into an array of characters
+  //toReverse.split("") converts the string into an array of characters, so "reverse" becomes ["r", "e", "v", "e", "r", "s", "e"].
+
+  const reversedArray = charArray.reverse(); // Use the `reverse` array iterator to reverse the array
+  //charArray.reverse() reverses the array in place, resulting in ["e", "s", "r", "e", "v", "e", "r"].
+
+  const reversedString = reversedArray.join(""); // Join the reversed array back into a string
+  //reversedArray.join("") combines the characters into a single string: "esrever".
+
+  return reversedString;
 };
 
-/**
+
+console.log(reverseString("reverse")); // Output: "esrever"
+console.log(reverseString("hello world")); // Output: "dlrow olleh"
+
+/**FROM HERE
  * A function that arranges an array of characters alphabetically.
  * Each character will need to be lowercase.
  * A to Z case insensitive.
