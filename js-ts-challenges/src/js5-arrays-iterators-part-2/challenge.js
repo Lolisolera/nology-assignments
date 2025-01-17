@@ -110,7 +110,7 @@ console.log(sortNumbersHighToLow([6, 9, 55, 2, 9190, 0.5]));
 
 
 
-/**FROM HERE
+/**
  * A function that checks if a given item is 'in stock'.
  * You have been given a 'stock list' in the function body.
  *
@@ -145,10 +145,17 @@ export const checkItemInStock = (toCheck) => {//toCheck is the item that we want
 
   if (index >= 0) { //if the item was found in the array
     message = `${toCheck} is in stock, it is on aisle ${index}.`;
-  }
+  }//${toCheck} is the item that we want to search for in the stock list
 
-  return message;
+  return message; //"orange is in stock, it is on aisle 2."
 };
+
+
+console.log(checkItemInStock("orange")); // "orange is in stock, it is on aisle 2."
+console.log(checkItemInStock("banana")); //  "banana is in stock, it is on aisle 1."
+console.log(checkItemInStock("pineapple")); // "Sorry pineapple is not in stock."
+
+
 
 
 
@@ -163,8 +170,16 @@ export const checkItemInStock = (toCheck) => {//toCheck is the item that we want
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+
+  const primaryColours = ["red", "blue", "yellow"];
+
+  return coloursArr.every(colour => primaryColours.includes(colour));
+  //The every method checks if all elements in the array satisfy a condition.
+  //The condition here is that the color exists in the primaryColours array (primaryColours.includes(colour)).
 };
+
+console.log(checkPrimaryColours(["red", "blue", "yellow"])); // true
+console.log(checkPrimaryColours(["red", "orange", "yellow", "blue"])); // false
 
 /* Advanced Challenges */
 
@@ -178,10 +193,22 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+
+  const cleanedString = stringOne.toLowerCase().replace(/[^a-z0-9]/g, ""); // Convert to lowercase and remove non-alphanumeric characters
+  //convert the input to lowercase to ensure case insensitivity.
+  //then, remove all non-alphanumerical chracters, spaces, punutation, etc.
+  const reversedString = cleanedString.split("").reverse().join(""); // Reverse the cleaned string
+  //.split("") converts the string into an array of characters.
+  //then, reverse the array and the .join("")will convert the reversed array back into a string.
+  return cleanedString === reversedString; // Check if the cleaned string equals its reverse
 };
 
-/**
+console.log(checkStringPalindrome("RaceCar")); // true (case-insensitive)
+console.log(checkStringPalindrome("hello")); // false
+
+
+
+/**FROM HERE
  * A function that totals a nested array of scores arrays.
  * It only needs to total each nested array.
  * e.g. [[1, 2], [2, 3]] = [3, 5]
@@ -191,9 +218,21 @@ export const checkStringPalindrome = (stringOne) => {
  * @return {number[]} [20, 7, 3]
  */
 
-export const totalNestedScoresArr = (scoresArr) => {
-  return;
+export const totalNestedScoresArr = (numberArr) => {
+  return numberArr.map((nestedArr) =>//.map(): Iterates over each element of the numberArr array.
+    //Each element of numberArr (e.g., [7, 7, 6], [2, 3, 2], [3]) is passed to the callback function (nestedArr) => { ... }.
+    //.map(): Create a new array by transforming each nestedArr into the total of its numbers.
+    nestedArr.reduce((total, score) => total + score, 0)
+    //.reduce(): processes all elements of an array and reduces it to a single value (e.g., a sum, product, etc.).
+    //total: The accumulator that keeps track of the running total.
+    //score: The current element being processed from the array.
+    //Initial Value: 0 (passed as the second argument to .reduce()).
+    //This sets the starting value for the accumulator total to 0.
+  );
 };
+const result = totalNestedScoresArr([[7, 7, 6], [2, 3, 2], [3]]);
+console.log(result); // Output: [20, 7, 3]
+
 
 /* Expert Challenges */
 
@@ -223,5 +262,19 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+  // Break the string into an array of characters
+  const charArray = toEncrypt.split('');
+
+  // Use reduce to group characters into 3 lists
+  const grouped = charArray.reduce((groups, char, index) => {
+    const groupIndex = index % 3; // Determine which group this character belongs to
+    groups[groupIndex] += char;  // Append the character to the appropriate group
+    return groups;
+  }, ['', '', '']); // Start with 3 empty groups
+
+  // Join the groups into the final encrypted string
+  return grouped.join('');
 };
+
+// Example usage
+console.log(encryptString("encrypted")); // Output: "ertnyecpd"
