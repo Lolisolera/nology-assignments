@@ -72,19 +72,10 @@ body {
         }
     }
 
-
-
     // Mobile-first approach (tablet and below)
-    @include devices.phone {
-        .navigation {
-            flex-direction: column;
-            align-items: center;
-
-            .nav-links {
-                flex-direction: column;
-                gap: typography.$default-margin;
-                display: none; // this shouldn't dispay the nav-bar in mobile view??
-            }
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none !important;
         }
     }
 
@@ -96,6 +87,7 @@ body {
 
             .nav-links {
                 flex-direction: row;
+                gap: typography.$default-margin;
                 gap: 2rem; // Increase space between links
             }
         }
@@ -104,7 +96,7 @@ body {
     // Laptop and larger screens
     @include devices.laptop {
         .navigation {
-            padding: 0 2rem;
+            gap: typography.$default-margin;
         }
     }
 }
@@ -133,7 +125,6 @@ body {
         }
     }
 
-
     @include devices.tablet {
         .hero-text {
             padding-left: 10%;
@@ -147,7 +138,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
 }
 
 h2 {
@@ -161,6 +152,7 @@ h2 {
 p {
     font-size: typography.$font-size-base; // typography variable for base font size
     margin: 0;
+    line-height: 1.8;
 }
 
 .about-image {
@@ -190,7 +182,7 @@ p {
 
 .about-content h2 {
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: 1rem;
 }
 

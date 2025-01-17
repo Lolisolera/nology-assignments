@@ -52,15 +52,9 @@ body {
 .header .navigation .nav-links a:hover {
   text-decoration: underline;
 }
-@media only screen and (max-width: 360px) {
-  .header .navigation {
-    flex-direction: column;
-    align-items: center;
-  }
-  .header .navigation .nav-links {
-    flex-direction: column;
-    gap: 0.625rem;
-    display: none;
+@media (max-width: 768px) {
+  .header .nav-links {
+    display: none !important;
   }
 }
 @media only screen and (min-width: 361px) and (max-width: 1365px) {
@@ -70,12 +64,13 @@ body {
   }
   .header .navigation .nav-links {
     flex-direction: row;
+    gap: 0.625rem;
     gap: 2rem;
   }
 }
 @media only screen and (min-width: 1366px) {
   .header .navigation {
-    padding: 0 2rem;
+    gap: 0.625rem;
   }
 }
 
@@ -110,7 +105,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -124,6 +119,7 @@ h2 {
 p {
   font-size: 1rem;
   margin: 0;
+  line-height: 1.8;
 }
 
 .about-image {
@@ -149,7 +145,7 @@ p {
 }
 .about-content h2 {
   width: 100%;
-  text-align: center;
+  text-align: left;
   margin-bottom: 1rem;
 }
 
