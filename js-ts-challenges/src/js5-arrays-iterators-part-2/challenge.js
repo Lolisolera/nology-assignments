@@ -59,18 +59,29 @@ export const reverseString = (toReverse) => {
 console.log(reverseString("reverse")); // Output: "esrever"
 console.log(reverseString("hello world")); // Output: "dlrow olleh"
 
-/**FROM HERE
+
+
+/**
  * A function that arranges an array of characters alphabetically.
  * Each character will need to be lowercase.
  * A to Z case insensitive.
  *
  * @param {string[]} characterArr ["X", "B", "B", "b", "g", "l", "n", "x"]
- * @return {string[]} ["b", "b", "b", "g", "l", "n", "x", "x"]
+ * @return {string[]} ["b", "b", "b", "g", "l", "n", "x", "x"]    //output of a new array with characters sorted aplphabetically
  */
 
 export const sortCharactersAlphabetically = (characterArr) => {
-  return;
+  // Convert all characters to lowercase and sort alphabetically
+  return characterArr
+    .map((char) => char.toLowerCase()) // Convert to lowercase. The map ()function creates a new array where all characters are converted to lowercase using the toLowerCase() method.
+    .sort(); // the Sort method arrange the lowercase characters in alphabetical order.
+
 };
+
+console.log(sortCharactersAlphabetically(["X", "B", "B", "b", "g", "l", "n", "x"]));
+// Output: ["b", "b", "b", "g", "l", "n", "x", "x"]
+
+
 
 /* Intermediate Challenges */
 
@@ -79,15 +90,27 @@ export const sortCharactersAlphabetically = (characterArr) => {
  *
  * You should do this WITHOUT modifying the original array
  *
- * @param {number[]} numberArr [6, 9, 55, 2, 9190, .5]
- * @return {number[]} [9190, 55, 9, 6, 2, 0.5]
+ * @param {number[]} numberArr [6, 9, 55, 2, 9190, .5]  //this is the original array of numbers
+ * @return {number[]} [9190, 55, 9, 6, 2, 0.5]   //this will be a new array with numbers sorted from high to low.
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+
+  const copiedArr = [...numberArr];// the spread operator ...  creates a copy of the original array
+
+
+  const sortedArr = copiedArr.sort((a, b) => b - a);// Sort the copied array in descending order
+
+  return sortedArr;
 };
 
-/**
+
+console.log(sortNumbersHighToLow([6, 9, 55, 2, 9190, 0.5]));
+// Output: [9190, 55, 9, 6, 2, 0.5]
+
+
+
+/**FROM HERE
  * A function that checks if a given item is 'in stock'.
  * You have been given a 'stock list' in the function body.
  *
@@ -97,13 +120,37 @@ export const sortNumbersHighToLow = (numberArr) => {
  * If the item is not in the stock list you need to return the following string format.
  * "Sorry ITEM is not in stock."
  *
- * @param {string} toCheck orange
+ * @param {string} toCheck orange          //item to check
  * @return {string} "orange is in stock, it is on aisle 2."
  */
 
-export const checkItemInStock = (toCheck) => {
-  return;
+export const checkItemInStock = (toCheck) => {//toCheck is the item that we want to search for in the stockList.
+  const stockList = [
+    "apple",
+    "banana",
+    "orange",
+    "coconut",
+    "strawberry",
+    "lime",
+    "grapefruit",
+    "lemon",
+    "kumquat",
+    "blueberry",
+    "melon",
+  ];
+
+  const index = stockList.indexOf(toCheck);//indexOf() is an array method that checks if toCheck exists in
+  //stockList. If it finds the item, it returns the index (position) of the item in the array. If the item is not found, it returns -1.
+  let message = `Sorry ${toCheck} is not in stock.`;//initially is not in stock
+
+  if (index >= 0) { //if the item was found in the array
+    message = `${toCheck} is in stock, it is on aisle ${index}.`;
+  }
+
+  return message;
 };
+
+
 
 /**
  * A function that takes an array of colours and checks if EVERY colour is a primary colour.
