@@ -16,6 +16,7 @@
     }
 }
 
+/*
 .white-keys {
     display: flex;
 }
@@ -58,4 +59,78 @@
 
 .black:hover {
     background-color: gray;
+}*/
+
+.white-keys {
+    display: flex;
+    z-index: 1;
+    /* Ensure white keys are below black keys */
+}
+
+.key {
+    width: 60px;
+    height: 200px;
+    margin: 0;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.white {
+    background-color: white;
+}
+
+.white:hover {
+    background-color: lightgray;
+}
+
+.black-keys {
+    position: absolute;
+    top: 0;
+    display: flex;
+    z-index: 2;
+    /* Ensure black keys are on top of white keys */
+}
+
+.black {
+    width: 40px;
+    height: 140px;
+    margin: 0;
+    background-color: black;
+    border: 1px solid #000;
+    position: absolute;
+    /* Individual positioning for each black key */
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.black:hover {
+    background-color: gray;
+}
+
+/* Position each black key */
+.black:nth-child(1) {
+    left: 45px;
+    /* C# */
+}
+
+.black:nth-child(2) {
+    left: 105px;
+    /* D# */
+}
+
+.black:nth-child(3) {
+    left: 225px;
+    /* F# */
+}
+
+.black:nth-child(4) {
+    left: 285px;
+    /* G# */
+}
+
+.black:nth-child(5) {
+    left: 345px;
+    /* A# */
 }

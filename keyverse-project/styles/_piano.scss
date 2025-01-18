@@ -2,3 +2,18 @@
     border: 10px solid #337CCF;
     border-radius: 15px;
 }
+
+
+.piano {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: 480px;
+    /* Adjust to fit all keys */
+    height: 200px;
+    margin: 20px auto;
+    background-color: #003399;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
