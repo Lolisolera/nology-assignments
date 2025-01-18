@@ -3,7 +3,6 @@
 @use './_piano';
 
 
-
 body {
     text-align: center;
     background-color: #1450A3;
@@ -20,56 +19,6 @@ h1 {
 footer {
     color: #DBEDF3;
     font-family: sans-serif;
-}
-
-
-
-.piano {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.white-keys {
-    display: flex;
-}
-
-.key {
-    width: 60px;
-    height: 200px;
-    margin: 0 2px;
-    border: 1px solid #000;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-}
-
-.white {
-    background-color: white;
-    z-index: 1;
-}
-
-.white:hover {
-    background-color: lightgray;
-}
-
-.black-keys {
-    position: absolute;
-    display: flex;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    margin-left: 30px; // Adjust this to position the black keys correctly
-}
-
-.black {
-    width: 40px;
-    height: 140px;
-    margin: 0 2px;
-    background-color: black;
-    border: 1px solid #000;
-    cursor: pointer;
-}
-
-.black:hover {
-    background-color: gray;
+    margin-top: 100px;
+    ;
 }
