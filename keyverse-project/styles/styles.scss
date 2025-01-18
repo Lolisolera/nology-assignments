@@ -1,7 +1,8 @@
+@use "styles/_buttons";
+@use "styles/_layout";
+@use "styles/_piano";
 @use "styles/styles.scss" as *;
-@use './layout';
-@use './piano';
-@use './buttons';
+
 
 
 .piano {
