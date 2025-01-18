@@ -1,5 +1,8 @@
 import '../styles/styles.scss';
 
+
+
+
 // Define the mapping of notes to sound files
 const noteSounds: { [key: string]: string } = {
   C: 'sounds/C.mp3',

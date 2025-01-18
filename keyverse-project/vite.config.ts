@@ -4,8 +4,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                // This ensures `styles.scss` is globally available
-                additionalData: `@use "./styles/styles.scss" as *;`,
+                additionalData: `@use "styles/styles.scss" as *;`, // Project-relative path
             },
         },
     },

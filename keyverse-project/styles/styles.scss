@@ -1,6 +1,8 @@
+@use "styles/styles.scss" as *;
 @use './layout';
 @use './piano';
 @use './buttons';
+
 
 .piano {
     display: flex;
