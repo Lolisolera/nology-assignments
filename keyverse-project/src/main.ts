@@ -1,4 +1,4 @@
-import './styles.scss';
+import '../styles/styles.scss';
 
 
 //** Define the mapping of notes to sound files
