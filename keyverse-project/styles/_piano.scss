@@ -5,15 +5,9 @@
 
 
 .piano {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
     width: 480px;
-    /* Adjust to fit all keys */
     height: 200px;
     margin: 20px auto;
-    background-color: #003399;
-    border-radius: 10px;
-    padding: 10px;
-    box-sizing: border-box;
+    overflow: hidden;
+    /* Ensure no keys extend outside the blue border */
 }

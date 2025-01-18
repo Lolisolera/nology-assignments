@@ -6,15 +6,8 @@ body {
     justify-content: center;
 }
 
-/*.piano {
-    display: flex;
-    align-items: center;
-    position: relative;
-}*/
 .piano {
     display: flex;
     align-items: flex-start;
-    /* Align the black keys at the top */
     position: relative;
-    margin: 20px auto;
 }

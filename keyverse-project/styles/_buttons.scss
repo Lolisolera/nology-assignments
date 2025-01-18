@@ -87,22 +87,24 @@
 
 .black-keys {
     position: absolute;
-    top: 0;
+    top: 10px;
+    /* Adjusted to prevent black keys from extending beyond the white keys */
     display: flex;
     z-index: 2;
-    /* Ensure black keys are on top of white keys */
+    /* Black keys are on top of white keys */
 }
 
 .black {
     width: 40px;
-    height: 140px;
+    height: 130px;
     margin: 0;
     background-color: black;
     border: 1px solid #000;
     position: absolute;
-    /* Individual positioning for each black key */
     cursor: pointer;
     box-sizing: border-box;
+    border-radius: 3px;
+    /* Optional: Rounded edges for a better look */
 }
 
 .black:hover {
