@@ -1,9 +1,7 @@
-import '../styles/styles.scss';
+import './styles.scss';
 
 
-
-
-// Define the mapping of notes to sound files
+//** Define the mapping of notes to sound files
 const noteSounds: { [key: string]: string } = {
   C: 'sounds/C.mp3',
   'C#': 'sounds/CSharp.mp3',
