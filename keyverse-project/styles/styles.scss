@@ -1,7 +1,6 @@
-@use './styles.scss' as *; // Use `@use` first
-@use "./_buttons" as *;
-@use "./_layout" as *;
-@use "./_piano" as *;
+@use './_buttons';
+@use './_layout';
+@use './_piano';
 
 
 // Your other styles go here
