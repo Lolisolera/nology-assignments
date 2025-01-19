@@ -65,6 +65,34 @@ function makeSound(key: string) {
       c2Sound.play();
       break;
 
+    //mapping sounds to black keys
+
+    case "C#":
+      let c_sharpSound = new Audio("./sounds/c_sharpSound.mp3");
+      c_sharpSound.play();
+      break;
+
+    case "D#":
+      let d_sharpSound = new Audio("./sounds/d_sharpSound.mp3");
+      d_sharpSound.play();
+      break;
+
+    case "F#":
+      let f_sharpSound = new Audio("./sounds/f_sharpSound.mp3");
+      f_sharpSound.play();
+      break;
+
+    case "G#":
+      let g_sharpSound = new Audio("./sounds/g_sharpSound.mp3");
+      g_sharpSound.play();
+      break;
+
+    case "A#":
+      let a_sharpSound = new Audio("./sounds/a_sharpSound.mp3");
+      a_sharpSound.play();
+      break;
+
+
 
     default: console.log(key);
 
