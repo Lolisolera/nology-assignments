@@ -6,15 +6,18 @@
     margin: 20px auto;
     overflow: hidden; // Ensures no keys extend beyond the blue border
 
+    //I'm using SCSS nested electors (&__ ) with BEM (Block Element Modifier)-style
+    //These will help me to structure and organise the styles for my piano keys and 
+    //the piano component, ensuring that styles are applied specifically to the correct parts of the interface.
 
     &__white-keys {
-        display: flex;
+        display: flex; //& represents the parent selector which is the piano. - means piano keys white class
         z-index: 1; // Ensure white keys are below black keys
     }
 
     &__key {
-        width: 60px;
-        height: 200px;
+        width: 60px; //&__ refers to the piano key element inside the .piano block.
+        height: 200px; //The & represents the .piano block, and __key is an element of .piano.It resolves the .piano__key
         margin: 0;
         border: 1px solid #000;
         box-sizing: border-box;
@@ -22,15 +25,16 @@
         transition: background-color 0.1s ease-in-out;
 
         &--white {
-            background-color: white;
+            background-color: white; //&__white represents the white keys inside the .piano componen
 
+            //This resolves to .piano__key--white
             &:hover {
                 background-color: lightgray;
             }
         }
 
         &--black {
-            width: 40px;
+            width: 40px; //The & references .piano, and __black is for styling the black keys specifically.
             height: 130px;
             margin: 0;
             background-color: black;
@@ -41,7 +45,8 @@
             border-radius: 3px; // Rounded edges of the black keys
 
             &:hover {
-                background-color: gray;
+                background-color: gray; //hove pseudoclass - hover state. The & represents
+                //the parent selector, in this case the black keys.
             }
         }
     }
