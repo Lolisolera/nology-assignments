@@ -10,108 +10,87 @@ for (let i = 0; i < numberOfKeys; i++) {
     buttonAnimation(buttonInnerText);
   });
 
-
 }
 
-document.addEventListener("keydown", function (event) {
-
+// Listen for keydown event
+document.addEventListener("keydown", (event: KeyboardEvent) => { //document.addEventListener("keydown", function (event) {
   makeSound(event.key);
-
   buttonAnimation(event.key);
-
 });
 
-
-function makeSound(key: string) {
-
+// Function to play sound based on key pressed (keydown)
+//control flow - switch case statement
+function makeSound(key: string): void {//void indicates that the function won't return anything when called.
+  //the purpose of this function is purely play sounds and not to return a value.
   switch (key) {
     case "C":
-      let cSound = new Audio("./sounds/cSound.mp3");
-      cSound.play();
+      new Audio("./sounds/cSound.mp3").play();
       break;
 
     case "D":
-      let dSound = new Audio("./sounds/dSound.mp3");
-      dSound.play();
+      new Audio("./sounds/dSound.mp3").play();
       break;
 
     case "E":
-      let eSound = new Audio("./sounds/eSound.mp3");
-      eSound.play();
+      new Audio("./sounds/eSound.mp3").play();
       break;
 
     case "F":
-      let fSound = new Audio("./sounds/fSound.mp3");
-      fSound.play();
+      new Audio("./sounds/fSound.mp3").play();
       break;
 
     case "G":
-      let gSound = new Audio("./sounds/gSound.mp3");
-      gSound.play();
+      new Audio("./sounds/gSound.mp3").play();
       break;
 
     case "A":
-      let aSound = new Audio("./sounds/aSound.mp3");
-      aSound.play();
+      new Audio("./sounds/aSound.mp3").play();
       break;
 
     case "B":
-      let bSound = new Audio("./sounds/bSound.mp3");
-      bSound.play();
+      new Audio("./sounds/bSound.mp3").play();
       break;
 
     case "C2":
-      let c2Sound = new Audio("./sounds/c2Sound.mp3");
-      c2Sound.play();
+      new Audio("./sounds/c2Sound.mp3").play();
       break;
 
-    //mapping sounds to black keys
-
     case "C#":
-      let c_sharpSound = new Audio("./sounds/c_sharpSound.mp3");
-      c_sharpSound.play();
+      new Audio("./sounds/c_sharpSound.mp3").play();
       break;
 
     case "D#":
-      let d_sharpSound = new Audio("./sounds/d_sharpSound.mp3");
-      d_sharpSound.play();
+      new Audio("./sounds/d_sharpSound.mp3").play();
       break;
 
     case "F#":
-      let f_sharpSound = new Audio("./sounds/f_sharpSound.mp3");
-      f_sharpSound.play();
+      new Audio("./sounds/f_sharpSound.mp3").play();
       break;
 
     case "G#":
-      let g_sharpSound = new Audio("./sounds/g_sharpSound.mp3");
-      g_sharpSound.play();
+      new Audio("./sounds/g_sharpSound.mp3").play();
       break;
 
     case "A#":
-      let a_sharpSound = new Audio("./sounds/a_sharpSound.mp3");
-      a_sharpSound.play();
+      new Audio("./sounds/a_sharpSound.mp3").play();
       break;
 
-
-
-    default: console.log(key);
-
+    default:
+      console.log(`Sound not found for key: ${key}`);
   }
 }
 
+// Function to animate the button when pressed
+function buttonAnimation(currentKey: string): void {
+  const activeButton = document.querySelector(`.${currentKey}`) as HTMLElement;
 
-function buttonAnimation(currentKey: string) {
-  const activeButton = document.querySelector(`.${currentKey}`) as HTMLElement; // Cast to HTMLElement
-
-  if (activeButton) { // Check if activeButton exists
+  if (activeButton) {
     activeButton.classList.add("pressed");
 
-    setTimeout(function () {
+    setTimeout(() => {
       activeButton.classList.remove("pressed");
-    }, 100);
+    }, 100);// after one second
   } else {
     console.error(`No button found for key: ${currentKey}`);
   }
 }
-
-
