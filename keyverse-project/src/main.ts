@@ -60,6 +60,11 @@ function makeSound(key: string) {
       bSound.play();
       break;
 
+    case "C2":
+      let c2Sound = new Audio("./sounds/c2Sound.mp3");
+      c2Sound.play();
+      break;
+
 
     default: console.log(key);
 
