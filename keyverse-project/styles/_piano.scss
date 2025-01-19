@@ -1,13 +1,48 @@
 .piano {
     border: 10px solid #337CCF;
     border-radius: 15px;
-}
-
-
-.piano {
     width: 480px;
     height: 200px;
     margin: 20px auto;
-    overflow: hidden;
-    /* this ensures that no keys extend outside the blue border */
+    overflow: hidden; // Ensures no keys extend beyond the blue border
+
+
+    &__white-keys {
+        display: flex;
+        z-index: 1; // Ensure white keys are below black keys
+    }
+
+    &__key {
+        width: 60px;
+        height: 200px;
+        margin: 0;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: background-color 0.1s ease-in-out;
+
+        &--white {
+            background-color: white;
+
+            &:hover {
+                background-color: lightgray;
+            }
+        }
+
+        &--black {
+            width: 40px;
+            height: 130px;
+            margin: 0;
+            background-color: black;
+            border: 1px solid #000;
+            position: absolute;
+            cursor: pointer;
+            box-sizing: border-box;
+            border-radius: 3px; // Rounded edges of the black keys
+
+            &:hover {
+                background-color: gray;
+            }
+        }
+    }
 }

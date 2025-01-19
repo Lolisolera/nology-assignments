@@ -1,66 +1,3 @@
-.piano {
-    &__buttons {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-    }
-
-    &__button {
-        border-radius: 10px;
-        padding: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        cursor: pointer;
-
-
-    }
-}
-
-/*
-.white-keys {
-    display: flex;
-}
-
-.key {
-    width: 60px;
-    height: 200px;
-    margin: 0 2px;
-    border: 1px solid #000;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-}
-
-.white {
-    background-color: white;
-    z-index: 1;
-}
-
-.white:hover {
-    background-color: lightgray;
-}
-
-.black-keys {
-    position: absolute;
-    display: flex;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    margin-left: 30px; // Adjust this to position the black keys correctly
-}
-
-.black {
-    width: 40px;
-    height: 140px;
-    margin: 0 2px;
-    background-color: black;
-    border: 1px solid #000;
-    cursor: pointer;
-}
-
-.black:hover {
-    background-color: gray;
-}*/
-
 .white-keys {
     display: flex;
     z-index: 1;
@@ -79,10 +16,10 @@
 
 .white {
     background-color: white;
-}
 
-.white:hover {
-    background-color: lightgray;
+    &:hover {
+        background-color: lightgray;
+    }
 }
 
 .black-keys {
@@ -105,10 +42,9 @@
     box-sizing: border-box;
     border-radius: 3px; //rounded edges of the black keys
 
-}
-
-.black:hover {
-    background-color: gray;
+    &:hover {
+        background-color: gray;
+    }
 }
 
 /* Position each black key */
