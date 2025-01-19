@@ -1,36 +1,84 @@
 import '../styles/styles.scss';
 
+let numberOfKeys = document.querySelectorAll(".key").length;
 
-//** Define the mapping of notes to sound files
-const noteSounds: { [key: string]: string } = {
-  C: 'sounds/C.mp3',
-  'C#': 'sounds/CSharp.mp3',
-  D: 'sounds/D.mp3',
-  'D#': 'sounds/DSharp.mp3',
-  E: 'sounds/E.mp3',
-  F: 'sounds/F.mp3',
-  'F#': 'sounds/FSharp.mp3',
-  G: 'sounds/G.mp3',
-  'G#': 'sounds/GSharp.mp3',
-  A: 'sounds/A.mp3',
-  'A#': 'sounds/ASharp.mp3',
-  B: 'sounds/B.mp3',
-  C2: 'sounds/C2.mp3',
-};
+for (let i = 0; i < numberOfKeys; i++) {
 
-// Function to play sound when a key is clicked
-const playSound = (note: string): void => {
-  const audio = new Audio(noteSounds[note]);
-  audio.play();
-};
-
-// Add event listeners to each piano key
-const keys = document.querySelectorAll('.key') as NodeListOf<HTMLButtonElement>;
-keys.forEach((key) => {
-  key.addEventListener('click', () => {
-    const note = key.getAttribute('data-note');
-    if (note) {
-      playSound(note);
-    }
+  document.querySelectorAll(".key")[i].addEventListener("click", function (this: HTMLElement) {
+    let buttonInnerText = this.innerText; // Now TypeScript knows 'this' is an HTMLElement
+    makeSound(buttonInnerText);
+    buttonAnimation(buttonInnerText);
   });
+
+
+}
+
+document.addEventListener("keydown", function (event) {
+
+  makeSound(event.key);
+
+  buttonAnimation(event.key);
+
 });
+
+
+function makeSound(key: string) {
+
+  switch (key) {
+    case "C":
+      let cSound = new Audio("./sounds/cSound.mp3");
+      cSound.play();
+      break;
+
+    case "D":
+      let dSound = new Audio("./sounds/dSound.mp3");
+      dSound.play();
+      break;
+
+    case "E":
+      let eSound = new Audio("./sounds/eSound.mp3");
+      eSound.play();
+      break;
+
+    case "F":
+      let fSound = new Audio("./sounds/fSound.mp3");
+      fSound.play();
+      break;
+
+    case "G":
+      let gSound = new Audio("./sounds/gSound.mp3");
+      gSound.play();
+      break;
+
+    case "A":
+      let aSound = new Audio("./sounds/aSound.mp3");
+      aSound.play();
+      break;
+
+    case "B":
+      let bSound = new Audio("./sounds/bSound.mp3");
+      bSound.play();
+      break;
+
+
+    default: console.log(key);
+
+  }
+}
+
+
+function buttonAnimation(currentKey: string) {
+  const activeButton = document.querySelector(`.${currentKey}`) as HTMLElement; // Cast to HTMLElement
+
+  if (activeButton) { // Check if activeButton exists
+    activeButton.classList.add("pressed");
+
+    setTimeout(function () {
+      activeButton.classList.remove("pressed");
+    }, 100);
+  } else {
+    console.error(`No button found for key: ${currentKey}`);
+  }
+}
+
+

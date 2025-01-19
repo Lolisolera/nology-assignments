@@ -103,8 +103,8 @@
     position: absolute;
     cursor: pointer;
     box-sizing: border-box;
-    border-radius: 3px;
-    /* Optional: Rounded edges for a better look */
+    border-radius: 3px; //rounded edges of the black keys
+
 }
 
 .black:hover {
