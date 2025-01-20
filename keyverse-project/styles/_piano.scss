@@ -26,13 +26,14 @@
         box-sizing: border-box;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
-        /*display: flex;
-        align-items: flex-end; // Position text at the bottom
-        justify-content: center; // Center text horizontally
-        position: relative;*/
+        position: relative; // Allow positioning within each key
+        text-align: center; // Center text horizontally
 
         &--white {
             background-color: white;
+            display: flex; // Use flexbox for positioning
+            justify-content: center; // Center horizontally
+            align-items: flex-end; // Move text to the bottom
 
             &:hover {
                 background-color: lightgray;

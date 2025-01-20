@@ -4,16 +4,20 @@ let numberOfKeys = document.querySelectorAll(".piano__key").length;
 
 for (let i = 0; i < numberOfKeys; i++) {
   document.querySelectorAll(".piano__key")[i].addEventListener("click", function (this: HTMLElement) {
-    let buttonInnerText = this.innerText.trim(); // Use .trim() to remove extra whitespace
+    let buttonInnerText = this.innerText; // Now TypeScript knows 'this' is an HTMLElement
     makeSound(buttonInnerText);
     buttonAnimation(buttonInnerText);
   });
 }
+//Event listener added to keys when pressed
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {
-  makeSound(event.key.toUpperCase()); // Convert key to uppercase
-  buttonAnimation(event.key.toUpperCase());
+  //document.addEventListener("keydown", function (event) -event type, callback function
+  makeSound(event.key);
+  buttonAnimation(event.key);
 });
+
+//Funtion to map sounds to keys and switch statement for each key case.
 
 function makeSound(key: string): void {
   switch (key) {
@@ -61,7 +65,7 @@ function makeSound(key: string): void {
   }
 }
 
-function buttonAnimation(currentKey: string): void {
+function buttonAnimation(currentKey: string): void {//void - no returned value expected.
   const activeButton = document.querySelector(`.piano__key--${currentKey}`) as HTMLElement;
 
   if (activeButton) {
