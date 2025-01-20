@@ -8,14 +8,14 @@
 
     &__white-keys {
         display: flex;
-        z-index: 1; // Ensure white keys are below black keys
+        z-index: 1; // White keys below black keys
     }
 
     &__black-keys {
         position: absolute;
         top: 10px;
         display: flex;
-        z-index: 2; // Black keys are on top of white keys
+        z-index: 2; // Black keys on top
     }
 
     &__key {
@@ -26,10 +26,10 @@
         box-sizing: border-box;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
-        display: flex;
-        align-items: flex-end; // Text at the bottom
-        justify-content: center;
-        position: relative;
+        /*display: flex;
+        align-items: flex-end; // Position text at the bottom
+        justify-content: center; // Center text horizontally
+        position: relative;*/
 
         &--white {
             background-color: white;
@@ -54,25 +54,25 @@
             }
         }
     }
-}
 
-// Position each black key (top-level selectors)
-.piano__key--black:nth-child(1) {
-    left: 45px; // C#
-}
+    // Positioning each black key
+    &__key--black:nth-child(1) {
+        left: 45px; // C#
+    }
 
-.piano__key--black:nth-child(2) {
-    left: 105px; // D#
-}
+    &__key--black:nth-child(2) {
+        left: 105px; // D#
+    }
 
-.piano__key--black:nth-child(3) {
-    left: 225px; // F#
-}
+    &__key--black:nth-child(3) {
+        left: 225px; // F#
+    }
 
-.piano__key--black:nth-child(4) {
-    left: 285px; // G#
-}
+    &__key--black:nth-child(4) {
+        left: 285px; // G#
+    }
 
-.piano__key--black:nth-child(5) {
-    left: 345px; // A#
+    &__key--black:nth-child(5) {
+        left: 345px; // A#
+    }
 }
