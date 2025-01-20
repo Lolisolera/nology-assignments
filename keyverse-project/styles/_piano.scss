@@ -4,50 +4,75 @@
     width: 480px;
     height: 200px;
     margin: 20px auto;
-    overflow: hidden; // Ensures no keys extend beyond the blue border
-
-    //I'm using SCSS nested electors (&__ ) with BEM (Block Element Modifier)-style
-    //These will help me to structure and organise the styles for my piano keys and 
-    //the piano component, ensuring that styles are applied specifically to the correct parts of the interface.
+    overflow: hidden;
 
     &__white-keys {
-        display: flex; //& represents the parent selector which is the piano. - means piano keys white class
+        display: flex;
         z-index: 1; // Ensure white keys are below black keys
     }
 
+    &__black-keys {
+        position: absolute;
+        top: 10px;
+        display: flex;
+        z-index: 2; // Black keys are on top of white keys
+    }
+
     &__key {
-        width: 60px; //&__ refers to the piano key element inside the .piano block.
-        height: 200px; //The & represents the .piano block, and __key is an element of .piano.It resolves the .piano__key
+        width: 60px;
+        height: 200px;
         margin: 0;
         border: 1px solid #000;
         box-sizing: border-box;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
+        display: flex;
+        align-items: flex-end; // Text at the bottom
+        justify-content: center;
+        position: relative;
 
         &--white {
-            background-color: white; //&__white represents the white keys inside the .piano componen
+            background-color: white;
 
-            //This resolves to .piano__key--white
             &:hover {
                 background-color: lightgray;
             }
         }
 
         &--black {
-            width: 40px; //The & references .piano, and __black is for styling the black keys specifically.
+            width: 40px;
             height: 130px;
-            margin: 0;
             background-color: black;
             border: 1px solid #000;
             position: absolute;
             cursor: pointer;
             box-sizing: border-box;
-            border-radius: 3px; // Rounded edges of the black keys
+            border-radius: 3px;
 
             &:hover {
-                background-color: gray; //hove pseudoclass - hover state. The & represents
-                //the parent selector, in this case the black keys.
+                background-color: gray;
             }
         }
     }
+}
+
+// Position each black key (top-level selectors)
+.piano__key--black:nth-child(1) {
+    left: 45px; // C#
+}
+
+.piano__key--black:nth-child(2) {
+    left: 105px; // D#
+}
+
+.piano__key--black:nth-child(3) {
+    left: 225px; // F#
+}
+
+.piano__key--black:nth-child(4) {
+    left: 285px; // G#
+}
+
+.piano__key--black:nth-child(5) {
+    left: 345px; // A#
 }

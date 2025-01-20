@@ -19,7 +19,6 @@ document.addEventListener("keydown", (event: KeyboardEvent) => { //document.addE
 });
 
 // Function to play sound based on key pressed (keydown)
-//control flow - switch case statement
 function makeSound(key: string): void {//void indicates that the function won't return anything when called.
   //the purpose of this function is purely play sounds and not to return a value.
   switch (key) {
