@@ -81,7 +81,8 @@ function buttonAnimation(currentKey: string): void {//void - no returned value e
 
 //MAPPING COMPUTER KEYS TO KEYBOARD KEYS
 
-const keyMapping: Record<string, string> = {
+const keyMapping: Record<string, string> = {//represents an object with keys.KEYS are strings "A", "AS", etc, and 
+  //the piano notes are also strings A", "F", etc. 
   'A': 'C',   // Key "A" plays the "C" note
   'S': 'D',   // Key "S" plays the "D" note
   'D': 'E',   // Key "D" plays the "E" note
@@ -93,21 +94,21 @@ const keyMapping: Record<string, string> = {
 };
 
 document.addEventListener('keydown', (event) => {
-  const note = keyMapping[event.key.toUpperCase()]; // Convert key to uppercase
+  const note = keyMapping[event.key.toUpperCase()]; // Convert key to uppercase, otherwise I'll have to select my "alt" key for the sound to happen
   if (note) {
-    playNote(note); // Trigger the function that plays the corresponding note
-    highlightKey(note); // Optionally highlight the piano key on the screen
+    playNote(note);
+    highlightKey(note); // highlight the piano key on the screen
   }
 });
 
 function playNote(note: string) {
-  // Adjust the file path to reflect the public directory structure
+
   const audio = new Audio(`/sounds/${note.toLowerCase()}Sound.mp3`); // Ensure the note is in lowercase for the file naming
   audio.play();
 }
 
 
-function highlightKey(note: string) {
+function highlightKey(note: string) { // highlight the notes played in the piano.
   const keyElement = document.querySelector(`[data-note="${note}"]`);
   if (keyElement) {
     keyElement.classList.add('active');
