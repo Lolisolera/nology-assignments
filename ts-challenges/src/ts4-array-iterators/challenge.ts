@@ -19,7 +19,7 @@
  * @return {boolean[]} [true, true, true]
  */
 
-export const removeFalseValues = (booleanArr: boolean[]): boolean[] => {
+export const removeFalseValues = (booleanArr: boolean[]): boolean[] => {//this means that this function is going to return an array of booleans.
   const trueValues = booleanArr.filter(boolean => boolean);//The filter() method is used to achieve this by testing each value and only keeping those that evaluate to true.
   return trueValues;
 };
@@ -131,8 +131,8 @@ export const filterBooksBySearch = (booksArr: string[], searchTerm: string): str
   //Each book is checked to see if it contains the searchTerm using includes.
   //Returns true if the searchTerm exists in the book title.
   //Filters out books that do not include the searchTerm.
+  //includes refers to strings in this example.
 };
-
 
 
 
@@ -232,7 +232,11 @@ export const fizzBuzz = (mixedArray: any[]): string[] => {
     return (
       (typeof item === "number" && item > 0) ||
       (typeof item === "string" && /^[1-9]\d*$/.test(item))// check if the item is a positive numeric string
-    );
+    );///^[1-9]\d*$/ is a regualr expression.
+    // the ^: Asserts the start of the string.
+    //[1-9]: Matches a single digit between 1 and 9 (no leading zeros).
+    //\d*: Matches zero or more additional digits (0-9) after the first digit.
+    //$: Asserts the end of the string.
   });
 
   // Step 2: Create a new array with the FizzBuzz logic
@@ -256,7 +260,3 @@ export const fizzBuzz = (mixedArray: any[]): string[] => {
   return fizzBuzzArray;
 };
 
-
-//question:
-//in this if statement, the order of the if statements are important? 
-//can chnge your output?

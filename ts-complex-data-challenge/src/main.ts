@@ -6,7 +6,7 @@ const container = document.getElementById("companies-container") as HTMLDivEleme
 
 
 // Function to render companies into the container
-const renderCompanies = (): void => {
+const renderCompanies = (): void => { //this is my function
     container.innerHTML = ""; // Clear the container before adding new cards
     //to avoid duplicating cards when the function is called multiple times.
 
@@ -19,6 +19,7 @@ const renderCompanies = (): void => {
         companyCard.style.boxShadow = "2px 2px 6px rgba(0, 0, 0, 0.1)";
 
         const name = document.createElement("h2");  //DOM node Creates an empty <h2> element.
+        //createElement(method) creates the h2 dinamically - on the fly.
         name.textContent = company.name; //Adds text content to the <h2> element.
 
         const industry = document.createElement("p");//Creates an empty <p> element.
@@ -31,7 +32,7 @@ const renderCompanies = (): void => {
         end.textContent = `End Year: ${company.end ? company.end : "Present"}`;
 
         // Append all details to the card
-        companyCard.appendChild(name);
+        companyCard.appendChild(name);//nest an element inside the parent element
         companyCard.appendChild(industry);
         companyCard.appendChild(start);
         companyCard.appendChild(end);
