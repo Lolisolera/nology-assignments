@@ -78,3 +78,39 @@ function buttonAnimation(currentKey: string): void {//void - no returned value e
     console.error(`No button found for key: ${currentKey}`);
   }
 }
+
+//MAPPING COMPUTER KEYS TO KEYBOARD KEYS
+
+const keyMapping: Record<string, string> = {
+  'A': 'C',   // Key "A" plays the "C" note
+  'S': 'D',   // Key "S" plays the "D" note
+  'D': 'E',   // Key "D" plays the "E" note
+  'F': 'F',   // Key "F" plays the "F" note
+  'G': 'G',   // Key "G" plays the "G" note
+  'H': 'A',   // Key "H" plays the "A" note
+  'J': 'B',   // Key "J" plays the "B" note
+  'K': 'C2'   // Key "K" plays the "C2" note (higher octave)
+};
+
+document.addEventListener('keydown', (event) => {
+  const note = keyMapping[event.key.toUpperCase()]; // Convert key to uppercase
+  if (note) {
+    playNote(note); // Trigger the function that plays the corresponding note
+    highlightKey(note); // Optionally highlight the piano key on the screen
+  }
+});
+
+function playNote(note: string) {
+  // Adjust the file path to reflect the public directory structure
+  const audio = new Audio(`/sounds/${note.toLowerCase()}Sound.mp3`); // Ensure the note is in lowercase for the file naming
+  audio.play();
+}
+
+
+function highlightKey(note: string) {
+  const keyElement = document.querySelector(`[data-note="${note}"]`);
+  if (keyElement) {
+    keyElement.classList.add('active');
+    setTimeout(() => keyElement.classList.remove('active'), 200); // Remove highlight after 200ms
+  }
+}
