@@ -20,8 +20,13 @@
  */
 
 export const totalScoresArr = (scoresArr: number[]): number => {
-  return -1;
-};
+  return scoresArr.reduce((total, score) => total + score, 0);//the "reduces" method iterates over each element in the array scoresArr.
+};//total is the accumulator that holds the sum so far.
+//score is the current element in the array.
+//0 is the initial value of the accumulator (the starting point).
+
+
+
 
 /**
  * A function that turns a string into an array and uses a ARRAY ITERATOR to reverse it.
@@ -33,8 +38,20 @@ export const totalScoresArr = (scoresArr: number[]): number => {
  */
 
 export const reverseString = (toReverse: string): string => {
-  return "";
+
+  const charArray = toReverse.split("");//"Split" converts the string into an array of Characters.
+
+  const reversedArray = charArray.reverse();  // Reverse the order of the elements inside the array
+
+  return reversedArray.join(""); // Join the reversed array back into a string
 };
+
+//use example:
+const result = reverseString("reverse");
+console.log(result);  // Output: "esrever"
+
+
+
 
 /**
  * A function that arranges an array of characters alphabetically.
@@ -46,8 +63,18 @@ export const reverseString = (toReverse: string): string => {
  */
 
 export const sortCharactersAlphabetically = (characterArr: string[]): string[] => {
-  return [];
+  return characterArr
+    .map(char => char.toLowerCase()) // Convert all characters to lowercase
+    .sort(); // Sort characters alphabetically
 };
+
+//Test the function
+const characterArr = sortCharactersAlphabetically(["X", "B", "B", "b", "g", "l", "n", "x"]);
+console.log(result);  // Output: ["b", "b", "b", "g", "l", "n", "x", "x"]
+
+
+
+
 
 /* Intermediate Challenges */
 
@@ -61,8 +88,21 @@ export const sortCharactersAlphabetically = (characterArr: string[]): string[] =
  */
 
 export const sortNumbersHighToLow = (numberArr: number[]): number[] => {
-  return [];
+
+  return [...numberArr].sort((a, b) => b - a);// Create a copy of the original array and sort it in descending order
 };
+
+
+//test the function
+const numberArr = [6, 9, 55, 2, 9190, 0.5];
+const sortedNumbers = sortNumbersHighToLow(numberArr);
+
+console.log(sortedNumbers); // Output: [9190, 55, 9, 6, 2, 0.5]
+console.log(numberArr);       // Output: [6, 9, 55, 2, 9190, 0.5] (original array remains unchanged)
+
+
+
+
 
 /**
  * A function that checks if a given item is 'in stock'.
@@ -92,8 +132,25 @@ export const checkItemInStock = (toCheck: string): string => {
     "blueberry",
     "melon",
   ];
-  return "";
+
+
+  const index = stockList.indexOf(toCheck.toLowerCase());// Find the index of the item in the stock list- case insensitive
+
+
+  if (index !== -1) {  // Check if the item is in stock
+    return `${toCheck} is in stock, it is on aisle ${index}.`;//toCheck is the item that i want to check
+  } else {
+    return `Sorry ${toCheck} is not in stock.`;
+  }
+
 };
+
+console.log(checkItemInStock("blueberry")); // Output: "blueberry is in stock, it is on aisle 9."
+console.log(checkItemInStock("peach"));  // Output: "Sorry peach is not in stock."
+
+
+
+
 
 /**
  * A function that takes an array of colours and checks if EVERY colour is a primary colour.
@@ -106,8 +163,21 @@ export const checkItemInStock = (toCheck: string): string => {
  */
 
 export const checkPrimaryColours = (coloursArr: string[]): boolean => {
-  return false;
+
+  const primaryColours = ["red", "blue", "yellow"];
+
+  return coloursArr.every(colour => primaryColours.includes(colour.toLowerCase()));//includes method checks if a colour exists in the primaryColours array.
+  //toLowerCase() ensures that the comparaison is case sensitive.
+  //Every Method returns true if all elements in the array satisfy the condition.
 };
+
+//check the function:
+console.log(checkPrimaryColours(["red", "red", "blue", "yellow"])); // Output: true
+console.log(checkPrimaryColours(["purple", "blue"])); // Output: false
+
+
+
+
 
 /* Advanced Challenges */
 
@@ -121,8 +191,22 @@ export const checkPrimaryColours = (coloursArr: string[]): boolean => {
  */
 
 export const checkStringPalindrome = (stringOne: string): boolean => {
-  return false;
+
+  const cleanedString = stringOne.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();// Remove any non-alphanumeric characters and convert the string to lowercase
+  //(/[^a-zA-Z0-9]/g, "") is a regular expression to get hold of non alphanumeric characters.
+  return cleanedString === cleanedString.split("").reverse().join("");// Compare the cleaned string with its reversed version
+  //Splits the string into an array of characters
+  //Reverses the array.
+  //Joins it back into a string.
+
 };
+//use the function:
+console.log(checkStringPalindrome("hello")); // false
+console.log(checkStringPalindrome("level"));//true
+
+
+
+
 
 /**
  * A function that totals a nested array of scores arrays.
@@ -135,8 +219,23 @@ export const checkStringPalindrome = (stringOne: string): boolean => {
  */
 
 export const totalNestedScoresArr = (scoresArr: number[][]): number[] => {
-  return [];
+  return scoresArr.map((nestedArray) =>//The map method iterates over each nested array in the scoresArr.
+    //Map processes each nested array to calculate its total.
+    nestedArray.reduce((sum, score) => sum + score, 0)//The reduce method calculates the sum of all numbers in a nested array.
+    //The sum is the accumulator, initialized to 0.
+    //map returns new array where each element is the total of the corresponding nested array.
+  );
 };
+
+//test the function
+const scores = [[7, 7, 6], [2, 3, 2], [3]];
+const totals = totalNestedScoresArr(scores);
+
+console.log(totals); // Output: [20, 7, 3]
+
+
+
+
 
 /* Expert Challenges */
 
@@ -166,5 +265,19 @@ export const totalNestedScoresArr = (scoresArr: number[][]): number[] => {
  */
 
 export const encryptString = (toEncrypt: string): string => {
-  return "";
+  const groups: string[][] = toEncrypt.split("").reduce((acc, char, index) => {
+    //Splits the input string into an array of individual characters.
+    //reduce Iterates over each character of the array.
+    const groupIndex = index % 3; // Determine which group this character belongs to (0,1,2)
+    acc[groupIndex].push(char); // 'acc" - Adds the character to the correct group
+    return acc;
+  }, [[], [], []] as string[][]); // Initialize with 3 empty arrays
+
+
+  return groups.map(group => group.join("")).join("");//Joins each group of characters into a single string.
+  //.join("") Concatenates the strings from all groups to produce the final encrypted message.
 };
+
+
+//Use the function:
+console.log(encryptString("hello")); // Output: "hleo"
