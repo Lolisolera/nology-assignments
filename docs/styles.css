@@ -126,8 +126,17 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Non-Mobile View: Image on the right side of text */
-@media (min-width: 768px) {
+/* Mobile View */
+@media (max-width: 767px) {
+  .about-text {
+    text-align: justify;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+/* Intermediate screen size */
+@media (min-width: 768px) and (max-width: 1024px) {
   .about-content {
     flex-direction: row;
     align-items: flex-start;
@@ -141,14 +150,28 @@ p {
   }
   .about-text {
     order: 1;
+    margin-top: 2rem;
   }
 }
-.about-content h2 {
-  width: 100%;
-  text-align: left;
-  margin-bottom: 1rem;
+/* Larger screens */
+@media (min-width: 1025px) {
+  .about-content {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .about-image {
+    order: 2;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+  .about-text {
+    order: 1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
-
 h2 {
   font-family: "Georgia", serif;
   font-size: 2rem;
@@ -176,6 +199,11 @@ p {
   }
   .about-text {
     order: 1;
+  }
+}
+@media (min-width: 768px) {
+  .about-text {
+    margin-top: 2rem;
   }
 }
 .about-content h2 {
@@ -217,7 +245,8 @@ p {
 }
 @media only screen and (min-width: 361px) and (max-width: 1365px) {
   .skills .container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
   }
 }
 @media only screen and (max-width: 360px) {
@@ -226,7 +255,7 @@ p {
   }
 }
 .skills .img-icon {
-  max-width: 100%;
+  max-width: 120px;
   height: auto;
   aspect-ratio: 1/1;
   object-fit: contain;
