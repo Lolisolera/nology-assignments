@@ -89,7 +89,7 @@ export const convertStringToNumbersArray = (numberString: string): number[] => {
 };//the map(number)converts each element of the new array into a number (from "1" - 1, etc)
 
 
-////FROM HERE:
+//
 /**
  * A function that takes a string of numbers joined with a "+" and creates a new array based on if the number is even or odd.
  * Every number in the string will need to checked.
@@ -99,10 +99,24 @@ export const convertStringToNumbersArray = (numberString: string): number[] => {
  */
 
 export const createOddEvenArray = (numberString: string): string[] => {
-  return [];
+  return numberString.split("+").map(num => {//split Splits the string into an array of substrings (e.g., ["1", "2", "3", "4", "5"]).
+    //.map(num => { ... }): Iterates over each substring in the array
+
+    const number = Number(num); //and Converts each string to a number using Number(num).
+    return number % 2 === 0 ? "even" : "odd";//if %2 is even
+  });
 };
 
+//usage:
+const numberString = "1+2+3+4+5";
+const result = createOddEvenArray(numberString);
+
+console.log(result); // ['odd', 'even', 'odd', 'even', 'odd']
+
+
+
 /**
+
  * A function that takes an array of book titles and a search term.
  * The function needs to remove any book titles that do not include the search term.
  *
@@ -112,9 +126,18 @@ export const createOddEvenArray = (numberString: string): string[] => {
  */
 
 export const filterBooksBySearch = (booksArr: string[], searchTerm: string): string[] => {
-  return [];
+  const searchResult = booksArr.filter(book => book.includes(searchTerm));
+  return searchResult;//The filter method creates a new array with elements that satisfy the condition.
+  //Each book is checked to see if it contains the searchTerm using includes.
+  //Returns true if the searchTerm exists in the book title.
+  //Filters out books that do not include the searchTerm.
 };
 
+
+
+
+
+///
 /* Advanced Challenges */
 
 /**
@@ -129,18 +152,25 @@ export const filterBooksBySearch = (booksArr: string[], searchTerm: string): str
  * @return {string} "disco+shoes"
  */
 
-export const formatStringArray = (stringArr: string[]) => {
-  const cleanedArr = stringArr.forEach(string => {
-    const cleanStr = string.trim().toLowerCase();
+export const formatStringArray = (stringArr: string[]): string => {
+  const cleanedArr = stringArr.map(string => {//Replace forEach with map.forEach doesn’t return anything while
+    // map creates a new array based on the transformation of each element. 
+    //This ensures cleanedArr is correctly populated with the cleaned strings.
+    const cleanStr = string.trim().toLowerCase();//string.trim() removes leading and trailing whitespace from each string.
     return cleanStr;
-  }) as unknown as string[];
+  });
 
-  const joinedString = cleanedArr.join("+");
+  const joinedString = cleanedArr.join("+");// combines the cleaned strings with a + separator.
 
   return joinedString;
 };
 
-/**
+console.log(result);
+
+
+
+
+/** /
  * A function that takes a string, cleans it and formats it based on a condition.
  *
  * It will need to remove anything that is NOT a letter from the string.
@@ -154,12 +184,27 @@ export const formatStringArray = (stringArr: string[]) => {
  */
 
 export const formatString = (string: string): string[] => {
-  return [];
+  // Remove anything that is NOT a letter
+  const cleanedString = string.replace(/[^a-zA-Z]/g, "");//replace method removes all characters that are not letters
+
+  // Split converts the cleaned string into an array of letters
+  const formattedArray = cleanedString.split("").map((char, index) => {//The map() method iterates over each character in the array.
+    // Apply uppercase for even indexes, lowercase for odd indexes
+    return index % 2 === 0 ? char.toUpperCase() : char.toLowerCase();
+    //for even indexes, the character is converted to uppercase
+    //for odd indexes, the character is converted to lowercase 
+  });
+
+  return formattedArray; //the function returns the formatted array of letters.
 };
 
-/**
- * Expert Challenges
- */
+
+
+
+
+/**////FROM HERE:
+// Expert Challenges
+
 
 /**
  * A function that takes an array and FizzBuzzes it.
@@ -181,5 +226,37 @@ export const formatString = (string: string): string[] => {
  */
 
 export const fizzBuzz = (mixedArray: any[]): string[] => {
-  return [];
+  // Step 1: Filter the array to keep only positive numbers or positive numbers as strings
+  const cleanedArray = mixedArray.filter(item => {
+    // Check if the item is a positive number or a positive numeric string
+    return (
+      (typeof item === "number" && item > 0) ||
+      (typeof item === "string" && /^[1-9]\d*$/.test(item))// check if the item is a positive numeric string
+    );
+  });
+
+  // Step 2: Create a new array with the FizzBuzz logic
+  const fizzBuzzArray = cleanedArray.map(item => {//map method transform each item in the cleaned array
+    // Convert item to a number for the FizzBuzz logic
+    const num = typeof item === "string" ? parseInt(item, 10) : item;//parseInt method converts numeric strings to numbers
+    //If item is a string, it will be converted into a number using parseInt(item, 10).
+    //10 sets the decimal base for the conversion.
+    //item remains unchanges
+    if (num % 15 === 0) {//multiples of 3 and 5 "FizBuzz"
+      return "FizzBuzz";
+    } else if (num % 3 === 0) {  //multiples of three replace the number with "Fizz".
+      return "Fizz";
+    } else if (num % 5 === 0) {//multiples of five replace the number with "Buzz".
+      return "Buzz";
+    } else {
+      return num.toString(); // Convert other numbers to strings
+    }
+  });
+
+  return fizzBuzzArray;
 };
+
+
+//question:
+//in this if statement, the order of the if statements are important? 
+//can chnge your output?
