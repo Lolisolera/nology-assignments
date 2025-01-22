@@ -12,7 +12,7 @@
 /**
  * A function that takes a furniture object from the catalogue and returns its price
  *
- * furniture = {
+ * furniture = {          //furnitue OBJECT
  *  name: "lack",
  *  price: 6
  * }
@@ -21,8 +21,15 @@
  * @return {number} The price of the piece of furniture
  */
 export const getFurniturePrice = (furniture: Furniture): number => {
-  return -1;
-};
+  //Furniture interface Defines the structure of a Furniture object with two properties: name and price
+  //getFurniturePrice Function:Takes a Furniture object as input.
+
+  return furniture.price; //Returns the value of the price property from the object
+};//The function accesses the price property of the provided Furniture object and returns it directly.
+
+//Using an interface (E.g. FURNITURE)ensures type safety and validates that the object has the required properties.
+
+
 
 /**
  * A function to attach a store location to a furniture object from the catalogue
@@ -32,12 +39,15 @@ export const getFurniturePrice = (furniture: Furniture): number => {
  * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue
  */
 export const setFurnitureStoreLocation = (furniture: Furniture, location: string): CompleteFurniture => {
-  const defaultFurniture = { name: "", price: -1, location: "" };
+  const completeFurniture = { price: furniture.price, name: furniture.name, location: location };
 
-  return defaultFurniture;
+  return completeFurniture;
 };
 
-/**
+
+
+
+/**FROM HERE
  * A function which takes a selection of arguments relating to a space ship and uses them
  * to create a space ship object
  *
