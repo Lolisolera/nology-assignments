@@ -113,7 +113,7 @@ export const setUserName = (user: User, username: string): CompleteUser => {
 
 
 
-//FROM HERE
+
 /**
  * A function which takes a customer object from the database and returns the same object where the name has been
  * split into first and last name and reattached to the object
@@ -122,10 +122,29 @@ export const setUserName = (user: User, username: string): CompleteUser => {
  * @returns {{fullName: string, firstName: string, lastName: string}} A customer object from the database with the name separated into first and last
  */
 export const splitFullNameToFirstAndLast = (customer: Customer): CompleteCustomer => {
-  const defaultCustomer = { fullName: "", firstName: "", lastName: "" };
+  //customer: Customer is the parameter. 
+  //The customer is an object of type Customer which is expected to have at least a fullName property.
+  //: CompleteCustomer: is the return type of the function.
+  //The function is expected to return an object of type CompleteCustomer, which contains fullName, firstName, and lastName.
+  const fullName = customer.fullName;//extracts the fullName from the customer object
+  const splitNames = fullName.split(" ");//The split(" ") method is called on the fullName string.
+  //This splits the string into an array using the space character as a delimiter
+  //e.g "Alice Smith" would become the array ["Alice", "Smith"].
+  //splitNames now holds the array of parts from the fullName.
+  const firstName = splitNames[0];//The first element of the splitNames array is assumed to be the first name
+  const lastName = splitNames[1];//the second element of the splitNames array is assumed to be the last name
 
-  return defaultCustomer;
+  const newCustomer = { fullName: fullName, firstName: firstName, lastName: lastName };
+  //newCustomer is a new object with these 3 properties:
+  //fullmName with the original full anme of the customer
+  //firstName: The extracted first name
+  //lastName: The extracted last name
+  return newCustomer;//return of the newCustomer Object which contin the 3 properties
 };
+
+
+
+
 
 /**
  * A function which accesses a given key on an object
@@ -137,8 +156,17 @@ export const splitFullNameToFirstAndLast = (customer: Customer): CompleteCustome
  * @returns {any} value - The value you have accessed on the object
  */
 export const accessGivenKey = (object: any, key: string): any => {
-  return;
-};
+  return object[key]; //key is a string it is used to retrieve the value associated with that property from the object
+}; //Bracket notation allows the key to be a variable, unlike dot notation (e.g., object.key), which requires a fixed property name.
+
+//EXPLAINED: e.g.if object = { name: "Alice", age: 25 } and key = "name", then object[key] would return "Alice".
+//If the key doesn't exist in the object, it will return undefined.
+//in this challenge, the key could be of any data type!
+
+
+
+
+
 
 /* Advanced Challenges */
 
@@ -150,8 +178,30 @@ export const accessGivenKey = (object: any, key: string): any => {
  * @returns {string} An address string for a shipping label
  */
 export const getUserAddress = (user: ShippingUser): string => {
-  return "";
+  const { line1, line2, city, postcode } = user.address;//DESTRUCTURING to extract the line1, line2, city, and postcode properties from the user.address object.
+  return `${line1} ${line2} ${city} ${postcode}`;//template literals whcih concatenate the address components into a single string.
 };
+
+//use the fucntion (example):
+const user: ShippingUser = {
+  id: 1,
+  name: "Lola Marquez",
+  address: {
+    line1: "9 Pilgrims Close",
+    line2: "Barnet",
+    city: "London",
+    postcode: "N2 0AA"
+  }
+};
+
+// Get the address for shipping label
+const shippingLabel = getUserAddress(user);
+console.log(shippingLabel); // Output: "9 Pilgrims Close Barnet London N2 0AA"
+
+
+
+
+
 
 /**
  * A function that given a customer for the restaurant with a list of known allergies, and a list of allergens in an
@@ -162,10 +212,51 @@ export const getUserAddress = (user: ShippingUser): string => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer: RestaurantCustomer, allergenList: string[]): CompleteRestaurantCustomer => {
-  const defaultCustomer = { id: -1, name: "", allergies: [""], safeAllergens: [""] };
+  //step 1 - Create an array of allergens that are safe for the customer (those not in the customer's allergies list)
+  const safeAllergens = allergenList.filter(allergen => !customer.allergies.includes(allergen));
+  //the FILTER method creates a new array with new allergens that there are not in the original allergenList array.
+  // the INCLUDES method checks if each allergen is present in the customer's list of allergies
+  //If the allergen is not in the list, it's considered safe and is included in safeAllergens.
 
-  return defaultCustomer;
+  return { ...customer, safeAllergens };//new customer object with the additional safeAllergens array
+};//the SPREAD OPERATOR creates a new object by copying all properties from the original customer object
+//and then it adds or updates the safeAllergens property with the filtered list.
+
+// the RETURN object is of type CompleteRestaurantCustomer, which includes the safeAllergens array alongside the existing properties (id, name, allergies). 
+
+
+//example of USAGE:
+// Define the types
+interface RestaurantCustomer {
+  id: number;
+  name: string;
+  allergies: string[];
+}
+
+interface CompleteRestaurantCustomer extends RestaurantCustomer {//interface is used to define the shape or structure of an object. It specifies what properties an object must have and their respective types.
+  safeAllergens: string[]; //The extends keyword is used to inherit properties from another interface or class.
+}
+
+// Example customer
+const customer: RestaurantCustomer = {
+  id: 1,
+  name: "John Doe",
+  allergies: ["peanuts", "shellfish"]
 };
+
+// List of all known allergens
+const allergenList = ["peanuts", "shellfish", "milk", "eggs", "wheat"];
+
+// Get the customer with safe allergens attached
+const updatedCustomer = setSafeAllergens(customer, allergenList);
+
+console.log(updatedCustomer);
+
+
+
+
+
+
 
 /* Expert Challenges */
 
@@ -181,7 +272,7 @@ export const mergeFurniture = (
   furnitureLocationData: FurnitureLocationData,
   furnitureProductData: FurnitureProductData
 ): FurnitureData => {
-  const defaultFurniture = { id: -1, location: "", sku: "", name: "", price: -1, isAvailable: false };
 
-  return defaultFurniture;
+  // Merge the two objects using the spread operator
+  return { ...furnitureLocationData, ...furnitureProductData };
 };
