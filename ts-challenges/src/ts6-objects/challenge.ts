@@ -31,43 +31,60 @@ export const getFurniturePrice = (furniture: Furniture): number => {
 
 
 
+
+
 /**
  * A function to attach a store location to a furniture object from the catalogue
  *
  * @param {{name: string, price: number}} furniture - A piece of furniture from the catalogue
  * @param {string} location - A store location to attach to a piece of furniture
- * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue
+ * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue with a name, price and location.
  */
 export const setFurnitureStoreLocation = (furniture: Furniture, location: string): CompleteFurniture => {
-  const completeFurniture = { price: furniture.price, name: furniture.name, location: location };
+  //Furniture: A custom type (or interface) representing a furniture item {name: string, price: number}
+  //CompleteFurniture: Another custom type (or interface) which represents the enhanced furniture object with the additional location property.
 
+  const completeFurniture = { price: furniture.price, name: furniture.name, location: location };
+  //completeFurniture is a new OBJECT that extracts the name and price properties from the furniture object passed into the function
+  //and adds the location property passed as a string.
   return completeFurniture;
+  //returns the new object with name, price and location added to it.
 };
 
 
 
 
-/**FROM HERE
+/**
  * A function which takes a selection of arguments relating to a space ship and uses them
  * to create a space ship object
  *
  * @param {string} name The name of the space ship
- * @param {number} noOfSeats The number of seat of the space ship
+ * @param {number} noOfSeats The number of seats of the space ship
  * @param {string} engineType The type of engine in the space ship
  * @param {boolean} canTravelSolarSystems The ability for the space ship to travel to different solar systems
  * @returns {{name: string, noOfSeats: number, engineType: string, canTravelSolarSystems: boolean}} spaceship - The space ship object
  */
-
 export const makeSpaceship = (
   name: string,
   noOfSeats: number,
   engineType: string,
   canTravelSolarSystems: boolean
-): SpaceShip => {
-  const defaultSpaceShip = { name: "", noOfSeats: -1, engineType: "", canTravelSolarSystems: false };
 
-  return defaultSpaceShip;
+): SpaceShip => { // new spaceship object using the provided arguments
+  const spaceship = {
+    name: name,
+    noOfSeats: noOfSeats,
+    engineType: engineType,
+    canTravelSolarSystems: canTravelSolarSystems
+  };
+
+  return spaceship;  //new created object 
 };
+
+
+
+
+
 
 /* Intermediate Challenges */
 
@@ -79,11 +96,24 @@ export const makeSpaceship = (
  * @returns {{name: string, username: string}} User - The user object with the same username or a new one
  */
 export const setUserName = (user: User, username: string): CompleteUser => {
-  const defaultUser = { name: "", username: "" };
 
-  return defaultUser;
+  //interface User {name: string, username?} : interface CompleteUser {name: string, username}- username is required!
+  //if the user already has a username, return the user object otherwise, retun the new COmpleteUser object
+
+  const hasUserName = user.hasOwnProperty("username");//.hasOwnProperty is a method that checks if an object has a specific property as its own property, rather than inheriting it from its prototype chain.
+
+  if (!hasUserName) {
+    user.username = username;
+  }
+
+  return user as CompleteUser;
 };
 
+
+
+
+
+//FROM HERE
 /**
  * A function which takes a customer object from the database and returns the same object where the name has been
  * split into first and last name and reattached to the object
