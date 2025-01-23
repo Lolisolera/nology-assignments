@@ -17,8 +17,14 @@
  * @returns {string[]} A list of the employees quotes for the website
  */
 export const getEmployeeQuotes = (employeeArr: Employee[]): string[] => {
-  return [""];
+  return employeeArr.map(employee => employee.quote);//The map method  iterate over the array of employees 
+  //and for each employee object in the array we extract the quote property.
+  //then, MAP map returns a new array containing the quote from each employee object.
 };
+
+
+
+
 
 /**
  * A function which takes an array of employee objects and returns a new array only containing employees that are managers.
@@ -27,8 +33,29 @@ export const getEmployeeQuotes = (employeeArr: Employee[]): string[] => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr: Employee[]): Manager[] => {
-  return [] as Manager[];
+
+  return employeeArr.filter(employee => employee.isManagement) as Manager[];// Filter the array to only include employees who are managers
+  // The result of the filter method is asserted as Manager[] because all filtered employees have isManagement: true.
+  //employeeArr: Employee[] are the parameters of the function, which is an array of employee objects
+  //The type Employee[] indicates that employeeArr is an array where each element follows the Employee interface/type.
+  // Manager is the return type of the function.The function will return an array of Manager objects.
+  // Each Manager is a specialized form of Employee, as defined by the Manager type.
+
+  //The Employee INTERFACE defines the shape or structure of an object that represents an employee.
+  // In TypeScript, an interface is a way to specify the required properties and their types for objects, ensuring consistent structure and type safety.
+  //e.g: 
+  /*interface Employee {
+    name: string;           // The employee's name
+    quote: string;          // A quote attributed to the employee
+    yearsEmployed: number;  // The number of years the employee has worked at the company
+    isManagement: boolean;  // A boolean indicating if the employee is in a management role
+  }*/
+
 };
+
+
+
+
 
 /**
  * A function which tells you the number of keys on the provided object.
@@ -37,9 +64,23 @@ export const getTheManagers = (employeeArr: Employee[]): Manager[] => {
  * @returns {number} The number of the keys on the object
  */
 export const getNumberOfKeys = (object: object): number => {
-  return -1;
+  return Object.keys(object).length;
 };
 
+//use the function example:
+const person = {
+  name: "John",
+  age: 25,
+  profession: "Engineer",
+};
+
+console.log(getNumberOfKeys(person)); // Output: 3
+
+
+
+
+
+//FROM HERE:
 /* Intermediate Challenges */
 
 /**
