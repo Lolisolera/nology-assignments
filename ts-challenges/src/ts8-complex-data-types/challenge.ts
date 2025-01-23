@@ -80,7 +80,7 @@ console.log(getNumberOfKeys(person)); // Output: 3
 
 
 
-//FROM HERE:
+
 /* Intermediate Challenges */
 
 /**
@@ -92,9 +92,37 @@ console.log(getNumberOfKeys(person)); // Output: 3
  */
 export const findMostExpensiveItem = (shoppingBasketArr: Product[]): Product => {
   const defaultProduct = { name: "", price: -1, hasFreeShipping: false, quantity: -1 };
+  // "" is a placeholder and doesn't have a value yet. -1 indicate an invalid price because prices are never negative. 
+  //has free shipping:false indicates that is not free shipping by default.
+  //quantity -1 is a placeholder to indicate no vlaid quantity is associated with this product.
+  if (shoppingBasketArr.length === 0) {
+    return defaultProduct;
+  }
 
-  return defaultProduct;
+  // Use the reduce method to find the most expensive item
+  const mostExpensiveItem = shoppingBasketArr.reduce((prev, current) =>//The reduce function is used to process an array and accumulate a single result based on a callback function.
+    //prev is the previous most expensive value.
+    //current item being iterated over in the shoppingBasketArr array.
+    current.price > prev.price ? current : prev //this is the callback function and is executed for every single item
+    //if current price is greater than previous Price, them current becomes the most expensive item.
+    //otherwise, keep prev as the most expensive item.
+  );
+
+  return mostExpensiveItem;
 };
+
+// Example usage:
+const shoppingBasket: Product[] = [
+  { name: "Laptop", price: 1200, hasFreeShipping: true, quantity: 1 },
+  { name: "Headphones", price: 200, hasFreeShipping: true, quantity: 2 },
+  { name: "Keyboard", price: 50, hasFreeShipping: false, quantity: 1 },
+];
+
+console.log(findMostExpensiveItem(shoppingBasket));
+
+
+
+
 
 /**
  * A function which adds a new key of totalPrice to each shopping basket item in the array where total cost is
@@ -113,9 +141,16 @@ export const findMostExpensiveItem = (shoppingBasketArr: Product[]): Product => 
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
-export const setTotalPrice = (shoppingBasketArr: Product[]): CompleteProduct[] => {
-  return [];
+export const setTotalPrice = (shoppingBasketArr: Product[]): CompleteProduct[] => {//product interface and completeProduct interface
+  return shoppingBasketArr.map(item => ({//map creates a new array with transformed items from the original array.
+    ...item,//for each item a new object is returned using the spread operator to copy existing properties.
+    totalPrice: item.price * item.quantity, // Calculate total price and add to each object
+  }));
 };
+
+
+
+
 
 /**
  * A function which sums the total cost of every item in the array and returns it as a single number.
@@ -124,8 +159,16 @@ export const setTotalPrice = (shoppingBasketArr: Product[]): CompleteProduct[] =
  * @returns {number} The total cost of the order
  */
 export const totalShoppingBasket = (shoppingBasketArr: CompleteProduct[]): number => {
-  return -1;
+  return shoppingBasketArr.reduce((total, item) => total + item.totalPrice, 0);
+  //The reduce method iterates through the array, accumulating the sum of totalPrice for all items in the array.
+  //The total is initialized to 0, which is the starting value for the accumulation.
+  //Each item's totalPrice is added to the running total to compute the final sum.
 };
+
+
+
+
+
 
 /* Advanced Challenges */
 
@@ -138,9 +181,20 @@ export const totalShoppingBasket = (shoppingBasketArr: CompleteProduct[]): numbe
  * @param {{id: number, name: string, ingredients: string[], country: string, timeStamp: number, userCreated: string}[]} mealsArr - An array containing meal objects
  * @returns {{id: number, name: string, ingredients: string[], country: string}[]} An array of cleaned meal objects
  */
-export const getImportantKeys = (mealsArr: LargeMeal[]): LeanMeal[] => {
-  return [];
-};
+export const getImportantKeys = (mealsArr: LargeMeal[]): LeanMeal[] => {//original array: new array version
+  return mealsArr.map(({ id, name, ingredients, country }) => ({//map method returns a new array with the selected items
+    id,
+    name,
+    ingredients,
+    country,
+  }));
+};//the ORIGINAL array reminas unchanged.
+
+
+
+
+
+
 
 /**
  * A function which takes an array of meal objects and check if every object contains the necessary keys. If a key is
@@ -153,9 +207,21 @@ export const getImportantKeys = (mealsArr: LargeMeal[]): LeanMeal[] => {
  * @param {{id: number, name: string, ingredients: string[], country: string, isVegetarian?: boolean, timeToCook?: number}[]} mealsArr - An array containing meal objects
  * @returns {{id: number, name: string, ingredients: string[], country: string, isVegetarian: boolean, timeToCook: number}[]}
  */
-export const setImportantKeys = (mealsArr: OptionalMeal[]): MandatoryMeal[] => {
-  return [];
-};
+export const setImportantKeys = (mealsArr: OptionalMeal[]): MandatoryMeal[] => {//OptionalMeal[]where isVegetarian and timeToCook are optional.
+  return mealsArr.map((meal) => ({//map iterates over the array and ensure each meal object contains the necessary keys with the default values if they're missing.
+    ...meal,//the spread operator copies all existing properties of the meal object into the new object, ensuring the rest of the data remains intact.
+    isVegetarian: meal.isVegetarian ?? false, // Set default to false if undefined
+    //If meal.isVegetarian is null or undefined, it assigns false.
+    timeToCook: meal.timeToCook ?? 15,       // Set default to 15 if undefined
+    //If meal.timeToCook is null or undefined, it assigns 15.
+  }));
+};// the ?? is used to specifically check for for null or undefined.
+//the || is used to check for any falsy value (e.g., null, undefined, 0, false, "")
+
+
+
+
+
 
 /* Expert Challenges */
 
@@ -188,5 +254,27 @@ export const setImportantKeys = (mealsArr: OptionalMeal[]): MandatoryMeal[] => {
  * }[]} A Cleaned array of cocktail data
  */
 export const cleanCocktailResponseData = (cocktailData: CocktailResponse[]): Cocktail[] => {
-  return [];
+  return cocktailData.map(cocktail => {
+    // Extract and filter ingredients to remove null values
+    const ingredients = [
+      cocktail.strIngredient1,
+      cocktail.strIngredient2,
+      cocktail.strIngredient3,
+      cocktail.strIngredient4,
+      cocktail.strIngredient5,
+      cocktail.strIngredient6,
+    ].filter((ingredient): ingredient is string => ingredient !== null); // Type guard to ensure non-null strings
+    // the filter method excludes null values ffrom the ingredients list.
+
+    //Each CocktailResponse object is transformed into a Cocktail object with the desired properties and format.
+    // Map the raw cocktail to the cleaned format
+    return {
+      id: cocktail.idDrink,
+      drink: cocktail.strDrink,
+      category: cocktail.strCategory,
+      alcoholic: cocktail.strAlcoholic,
+      instructions: cocktail.strInstructions,
+      ingredients,
+    };
+  });
 };
