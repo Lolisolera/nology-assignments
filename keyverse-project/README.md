@@ -11,7 +11,7 @@ Key-Verse Piano is an interactive virtual piano app designed to bring the joy of
 
 ## How to Use
 1. Open the app in your browser.
-2. Use your mouse to click on the piano keys or press the corresponding keys on your keyboard to play notes.
+2. Use your mouse to click on the piano keys or press the following keys on your keyboard to play notes (A, S, D, F, G, H, J, K).
 3. Experiment with different melodies and enjoy creating music!
 
 ## Running the App Locally
@@ -45,7 +45,7 @@ To run Key-Verse Piano locally, follow these steps:
 - **Keyboard Input**: Use your keyboard to press the corresponding keys mapped to the piano.
 
 ### Keyboard Mapping
-- The keys are mapped to the musical notes in an intuitive layout. Explore the app to see the exact mappings!
+- The keys are mapped to the musical notes in an intuitive layout (A, S, D, F, G, H, J, K). Explore the app to see the exact mappings!
 
 ## Technologies Used
 - **TypeScript**: For writing clean and type-safe code.

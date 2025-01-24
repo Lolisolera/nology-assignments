@@ -5,6 +5,7 @@
     height: 200px;
     margin: 20px auto;
     overflow: hidden;
+    position: relative;
 
     &__white-keys {
         display: flex;
@@ -26,14 +27,13 @@
         box-sizing: border-box;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
-        position: relative; // Allow positioning within each key
-        text-align: center; // Center text horizontally
+
 
         &--white {
             background-color: white;
             display: flex; // Use flexbox for positioning
-            justify-content: center; // Center horizontally
-            align-items: flex-end; // Move text to the bottom
+            justify-content: center;
+            align-items: flex-end; // Move letters to the bottom
 
             &:hover {
                 background-color: lightgray;
@@ -44,7 +44,6 @@
             width: 40px;
             height: 130px;
             background-color: black;
-            border: 1px solid #000;
             position: absolute;
             cursor: pointer;
             box-sizing: border-box;
