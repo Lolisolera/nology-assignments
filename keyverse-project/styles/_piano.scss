@@ -5,7 +5,7 @@
     height: 200px;
     margin: 20px auto;
     overflow: hidden;
-    position: relative;
+
 
     &__white-keys {
         display: flex;
@@ -13,7 +13,7 @@
     }
 
     &__black-keys {
-        position: absolute;
+        position: absolute; //keep the black kesy fixed in their postion
         top: 10px;
         display: flex;
         z-index: 2; // Black keys on top
@@ -27,12 +27,11 @@
         box-sizing: border-box;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
-
+        text-align: center; // Center letters in the middle
 
         &--white {
             background-color: white;
-            display: flex; // Use flexbox for positioning
-            justify-content: center;
+            display: flex;
             align-items: flex-end; // Move letters to the bottom
 
             &:hover {
@@ -44,9 +43,9 @@
             width: 40px;
             height: 130px;
             background-color: black;
-            position: absolute;
+            border: 1px solid #000;
+            position: absolute; //fix black keys in their position
             cursor: pointer;
-            box-sizing: border-box;
             border-radius: 3px;
 
             &:hover {
@@ -55,24 +54,97 @@
         }
     }
 
-    // Positioning each black key
+    // Adjusted black key positions for desktop (default)
     &__key--black:nth-child(1) {
-        left: 45px; // C#
+        left: 43px; // C#
     }
 
     &__key--black:nth-child(2) {
-        left: 105px; // D#
+        left: 103px; // D#
     }
 
     &__key--black:nth-child(3) {
-        left: 225px; // F#
+        left: 223px; // F#
     }
 
     &__key--black:nth-child(4) {
-        left: 285px; // G#
+        left: 283px; // G#
     }
 
     &__key--black:nth-child(5) {
-        left: 345px; // A#
+        left: 343px; // A#
+    }
+
+    // Responsive design
+    @media (max-width: 923px) and (min-width: 525px) {
+        width: 380px; // Adjust piano width
+        height: 160px; // Adjust piano height
+
+        &__key {
+            width: 50px;
+            height: 160px;
+
+            &--black {
+                width: 30px;
+                height: 100px;
+
+                // Adjust black key positions for table size screens
+                &:nth-child(1) {
+                    left: 40px; // C#
+                }
+
+                &:nth-child(2) {
+                    left: 88px; // D#
+                }
+
+                &:nth-child(3) {
+                    left: 184px; // F#
+                }
+
+                &:nth-child(4) {
+                    left: 232px; // G#
+                }
+
+                &:nth-child(5) {
+                    left: 280px; // A#
+                }
+            }
+        }
+    }
+
+    @media (max-width: 524px) {
+        width: 300px; // Narrower piano width for mobile
+        height: 120px;
+
+        &__key {
+            width: 38px;
+            height: 120px;
+
+            &--black {
+                width: 24px;
+                height: 80px;
+
+                // black key positions for mobile
+                &:nth-child(1) {
+                    left: 30px; // C#
+                }
+
+                &:nth-child(2) {
+                    left: 68px; // D#
+                }
+
+                &:nth-child(3) {
+                    left: 144px; // F#
+                }
+
+                &:nth-child(4) {
+                    left: 182px; // G#
+                }
+
+                &:nth-child(5) {
+                    left: 220px; // A#
+                }
+            }
+        }
     }
 }
