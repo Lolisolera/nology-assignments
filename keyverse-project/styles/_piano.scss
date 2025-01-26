@@ -27,11 +27,11 @@
         box-sizing: border-box;
         cursor: pointer;
         transition: background-color 0.1s ease-in-out;
-        text-align: center; // Center letters in the middle
 
         &--white {
             background-color: white;
             display: flex;
+            justify-content: center; // Center letters in the middle
             align-items: flex-end; // Move letters to the bottom
 
             &:hover {
