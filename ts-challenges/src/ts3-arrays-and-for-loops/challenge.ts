@@ -20,8 +20,12 @@
  */
 
 export const createRecipeString = (ingredientsArr: string[]): string => {
-  return "";
+  return ingredientsArr.join('+');
 };
+
+// Example usage
+const ingredients = ["Bacon", "Lettuce", "Tomato"];
+console.log(createRecipeString(ingredients)); // Output: "Bacon+Lettuce+Tomato"
 
 /**
  * A function that takes Array of Items and returns a NEW ARRAY with the first and last item in it.
@@ -31,7 +35,9 @@ export const createRecipeString = (ingredientsArr: string[]): string => {
  */
 
 export const getFirstAndLastItems = (itemsArr: string[]): string[] => {
-  return [];
+  const first = itemsArr[0];
+  const last = itemsArr[itemsArr.length - 1];
+  return [first, last];
 };
 
 /**
@@ -42,7 +48,11 @@ export const getFirstAndLastItems = (itemsArr: string[]): string[] => {
  */
 
 export const totalScores = (scoreArr: number[]): number => {
-  return -1;
+  let total = 0;
+  for (let index = 0; index < scoreArr.length; index++) {
+    total += scoreArr[index];
+  }
+  return total;
 };
 
 /* Intermediate Challenges */

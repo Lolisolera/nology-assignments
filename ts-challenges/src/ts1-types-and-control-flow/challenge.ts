@@ -20,7 +20,7 @@ const lastName = "Smith";
 
 export const createFullName = (): string => {
   // Write your code here
-  return "";
+  return `${firstName} + ${lastName}`;
 };
 
 /**
@@ -34,7 +34,7 @@ const largeNumber2 = 200;
 
 export const findLargestNumber = (): number => {
   // Write your code here
-  return -1;
+  return Math.max(largeNumber1, largeNumber2);
 };
 
 /**
@@ -48,7 +48,7 @@ const addNumber2 = 24;
 
 export const addNumbers = (): number => {
   // Write your code here
-  return -1;
+  return addNumber1 + addNumber2;
 };
 
 /* Intermediate Challenges */
@@ -63,7 +63,7 @@ const password = "thisIsMyVeryLongPassword123456789";
 
 export const findLengthOfPassword = (): number => {
   // Write your code here
-  return -1;
+  return password.length;
 };
 
 /**
