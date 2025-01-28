@@ -24,7 +24,7 @@ body {
 
 }
 
-//Navbar
+//Navbar section
 .header {
     padding: typography.$default-margin 2rem;
 
@@ -86,44 +86,37 @@ body {
 }
 
 
-
-
-
 // Heading Section
 .heading {
     padding: 4rem 2rem;
 
-    .heading-text {
+    &__content {
         max-width: 800px;
         margin: 0 auto;
         text-align: left;
         padding-left: 5%;
-
-        h1 {
-            font-family: $font-primary;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: typography.$font-size-base;
-            max-width: 600px;
-            margin-top: 0.5rem;
-            line-height: 1.8;
-        }
     }
 
+    &__title {
+        font-family: $font-primary;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
 
+    &__description {
+        font-size: typography.$font-size-base;
+        max-width: 600px;
+        margin-top: 0.5rem;
+        line-height: 1.8;
+    }
 
     @include devices.tablet {
-        .heading-text {
+        &__content {
             padding-left: 10%;
         }
     }
-
-
-
 }
+
 
 
 
