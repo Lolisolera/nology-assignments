@@ -11,16 +11,6 @@ body {
   line-height: 1.6;
   font-size: 1rem;
 }
-@media only screen and (min-width: 361px) and (max-width: 1365px) {
-  body {
-    font-size: 1.125rem;
-  }
-}
-@media only screen and (min-width: 1366px) {
-  body {
-    font-size: 1.125rem;
-  }
-}
 
 .header {
   padding: 0.625rem 2rem;
@@ -52,12 +42,12 @@ body {
 .header .navigation .nav-links a:hover {
   text-decoration: underline;
 }
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .header .nav-links {
     display: none !important;
   }
 }
-@media only screen and (min-width: 361px) and (max-width: 1365px) {
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
   .header .navigation {
     flex-direction: row;
     justify-content: space-between;
@@ -68,7 +58,7 @@ body {
     gap: 2rem;
   }
 }
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 1024px) {
   .header .navigation {
     gap: 0.625rem;
   }
@@ -94,7 +84,7 @@ body {
   margin-top: 0.5rem;
   line-height: 1.8;
 }
-@media only screen and (min-width: 361px) and (max-width: 1365px) {
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
   .heading .heading-text {
     padding-left: 10%;
   }
@@ -114,12 +104,14 @@ h2 {
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   align-self: flex-start;
+  padding-left: 1rem;
 }
 
 p {
   font-size: 1rem;
   margin: 0;
   line-height: 1.8;
+  margin-top: 1rem;
 }
 
 .about-image {
@@ -135,7 +127,7 @@ p {
     margin-bottom: 2rem;
   }
 }
-/* Intermediate screen size */
+/* Tablet view */
 @media (min-width: 768px) and (max-width: 1024px) {
   .about-content {
     flex-direction: row;
@@ -152,8 +144,14 @@ p {
     order: 1;
     margin-top: 2rem;
   }
+  h2 {
+    padding-left: 2rem;
+  }
+  p {
+    margin-top: 1.5rem;
+  }
 }
-/* Larger screens */
+/* Laptop view */
 @media (min-width: 1025px) {
   .about-content {
     flex-direction: row;
@@ -178,39 +176,12 @@ h2 {
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   align-self: flex-start;
+  padding-left: 3rem;
 }
 
 p {
   font-size: 1rem;
-  margin: 0;
-}
-
-@media only screen and (min-width: 1366px) {
-  .about-content {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-    justify-content: space-between;
-  }
-  .about-image {
-    order: 2;
-    margin-left: 2rem;
-    margin-bottom: 0;
-  }
-  .about-text {
-    order: 1;
-  }
-}
-@media (min-width: 768px) {
-  .about-text {
-    margin-top: 2rem;
-  }
-}
-.about-content h2 {
-  width: 100%;
-  text-align: left;
-  margin-bottom: 1rem;
-  padding-left: 2rem;
+  margin-top: 2rem;
 }
 
 .skills {
@@ -223,7 +194,7 @@ p {
   gap: 3rem;
   margin-bottom: 2.5rem;
 }
-@media only screen and (min-width: 361px) and (max-width: 1365px) {
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
   .skills .skills-header {
     flex-direction: row;
     align-items: center;
@@ -232,6 +203,7 @@ p {
 .skills .skills-header h2 {
   font-size: 2rem;
   margin: 0;
+  padding-left: 1rem;
 }
 .skills .skills-header p {
   font-size: 1rem;
@@ -243,13 +215,13 @@ p {
   grid-template-columns: repeat(9, 1fr);
   gap: 1rem;
 }
-@media only screen and (min-width: 361px) and (max-width: 1365px) {
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
   .skills .container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
   }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 480px) {
   .skills .container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -387,14 +359,14 @@ footer .socials ul li a i {
 footer .socials ul li .cv {
   width: 38px;
 }
-@media only screen and (min-width: 361px) and (max-width: 1365px) {
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
   footer .socials ul li ul li a {
     width: 3.5rem;
     height: 3.5rem;
     font-size: 1.8rem;
   }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 480px) {
   footer .socials ul li ul li a {
     width: 3rem;
     height: 3rem;

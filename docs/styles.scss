@@ -22,15 +22,6 @@ body {
     line-height: 1.6;
     font-size: typography.$font-size-base;
 
-
-    @include devices.tablet {
-        font-size: typography.$font-size-base + 0.125rem; // 0.125rem is equivalent to 2px
-    }
-
-
-    @include devices.laptop {
-        font-size: typography.$font-size-base + 0.125rem; // 0.125rem for the increment
-    }
 }
 
 //Navbar
@@ -72,14 +63,14 @@ body {
         }
     }
 
-    // Mobile-first approach (tablet and below)
-    @media (max-width: 768px) {
+    // Mobile-first approach 
+    @media (max-width: 550px) {
         .nav-links {
             display: none !important;
         }
     }
 
-    // Tablet and larger screens
+    // Tablet 
     @include devices.tablet {
         .navigation {
             flex-direction: row;
@@ -89,11 +80,12 @@ body {
                 flex-direction: row;
                 gap: typography.$default-margin;
                 gap: 2rem; // Increase space between links
+
             }
         }
     }
 
-    // Laptop and larger screens
+    // Laptop 
     @include devices.laptop {
         .navigation {
             gap: typography.$default-margin;
@@ -126,12 +118,18 @@ body {
         }
     }
 
+
+
     @include devices.tablet {
         .heading-text {
             padding-left: 10%;
         }
     }
+
+
+
 }
+
 
 
 // About Section
@@ -149,12 +147,14 @@ h2 {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     align-self: flex-start;
+    padding-left: 1rem;
 }
 
 p {
     font-size: 1rem;
     margin: 0;
     line-height: 1.8;
+    margin-top: 1rem; // Add some space between h2 and p
 }
 
 .about-image {
@@ -171,7 +171,7 @@ p {
     }
 }
 
-/* Intermediate screen size */
+/* Tablet view */
 @media (min-width: 768px) and (max-width: 1024px) {
     .about-content {
         flex-direction: row;
@@ -190,9 +190,17 @@ p {
         order: 1;
         margin-top: 2rem;
     }
+
+    h2 {
+        padding-left: 2rem; //  left padding for tablet
+    }
+
+    p {
+        margin-top: 1.5rem;
+    }
 }
 
-/* Larger screens */
+/* Laptop view */
 @media (min-width: 1025px) {
     .about-content {
         flex-direction: row;
@@ -220,49 +228,16 @@ h2 {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     align-self: flex-start;
+    padding-left: 3rem;
 }
 
 p {
     font-size: typography.$font-size-base; // typography variable for base font size
-    margin: 0;
+
+    margin-top: 2rem;
 }
 
-// Tablet view and larger
-@include devices.laptop {
 
-    .about-content {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        justify-content: space-between; // Space between the image and text
-    }
-
-    .about-image {
-        order: 2;
-        margin-left: 2rem;
-        margin-bottom: 0;
-    }
-
-    .about-text {
-        order: 1;
-    }
-}
-
-// Non-mobile view styles
-@media (min-width: 768px) {
-
-    // Adjust the min-width as needed for non-mobile view
-    .about-text {
-        margin-top: 2rem;
-    }
-}
-
-.about-content h2 {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 1rem;
-    padding-left: 2rem;
-}
 
 //Skills Section
 .skills {
@@ -283,6 +258,7 @@ p {
         h2 {
             font-size: 2rem;
             margin: 0;
+            padding-left: 1rem;
         }
 
         p {
