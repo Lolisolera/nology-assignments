@@ -33,65 +33,60 @@ body {
         justify-content: space-between;
         align-items: center;
 
-        .logo {
+        &__logo {
             font-family: $font-primary;
             font-size: 1.5rem;
             text-transform: uppercase;
             color: $color-text;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        .nav-links {
+        &__links {
             display: flex;
             gap: 2rem;
+            list-style: none;
 
-            li {
-                list-style: none;
-            }
+        }
 
-            a {
-                text-decoration: none;
-                font-size: typography.$font-size-base;
-                color: $color-text;
-
-                &:hover {
-                    text-decoration: underline; // Hover effect
-                }
-            }
-
-
+        &__link {
+            text-decoration: none;
+            font-size: typography.$font-size-base;
+            color: $color-text;
+            cursor: pointer;
         }
     }
 
-    // Mobile-first approach 
+    // Mobile-first approach
     @media (max-width: 767px) {
-        .nav-links {
-            display: none !important; //to force hide the navbar in mobile view.
+        .navigation__links {
+            display: none;
         }
     }
 
-    // Tablet 
+    // Tablet
     @include devices.tablet {
         .navigation {
             flex-direction: row;
             justify-content: space-between;
 
-            .nav-links {
+            &__links {
                 flex-direction: row;
                 gap: typography.$default-margin;
-                gap: 2rem; // Increase space between links
-
             }
         }
     }
 
-    // Laptop 
+    // Laptop
     @include devices.laptop {
         .navigation {
             gap: typography.$default-margin;
         }
     }
 }
+
+
+
 
 
 // Heading Section
