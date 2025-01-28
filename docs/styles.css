@@ -86,98 +86,79 @@ body {
   }
 }
 
-/* Default Mobile View: Image stacked above text */
-.about-content {
+.about__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
 }
-
-h2 {
+.about__title {
   font-family: "Georgia", serif;
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   align-self: flex-start;
   padding-left: 1rem;
+  padding-right: 2rem;
 }
-
-p {
+.about__image {
+  margin-bottom: 5rem;
+}
+.about__text {
+  text-align: left;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+.about__text__paragraph {
   font-size: 1rem;
-  margin: 0;
-  line-height: 1.8;
   margin-top: 1rem;
+  line-height: 1.8;
 }
-
-.about-image {
-  margin-bottom: 1rem;
-}
-
-/* Mobile View */
 @media (max-width: 767px) {
-  .about-text {
+  .about__text {
     text-align: justify;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+    margin: 0 2rem 2rem 2rem;
+  }
+  .about__image img {
+    width: auto;
+    height: auto;
   }
 }
-/* Tablet view */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .about-content {
+  .about__content {
     flex-direction: row;
     align-items: flex-start;
-    text-align: left;
   }
-  .about-image {
+  .about__image {
     order: 2;
     margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 0;
+    margin-right: 0;
   }
-  .about-text {
+  .about__text {
     order: 1;
-    margin-top: 2rem;
+    flex: 1;
   }
-  h2 {
+  .about__title {
     padding-left: 2rem;
   }
-  p {
-    margin-top: 1.5rem;
-  }
 }
-/* Laptop view */
 @media (min-width: 1025px) {
-  .about-content {
+  .about__content {
     flex-direction: row;
     align-items: flex-start;
-    text-align: left;
   }
-  .about-image {
+  .about__image {
     order: 2;
     margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 0;
+    margin-right: 0;
   }
-  .about-text {
+  .about__text {
     order: 1;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    flex: 1;
   }
-}
-h2 {
-  font-family: "Georgia", serif;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  align-self: flex-start;
-  padding-left: 3rem;
-}
-
-p {
-  font-size: 1rem;
-  margin-top: 2rem;
+  .about__title {
+    padding-left: 3rem;
+  }
 }
 
 .skills {
