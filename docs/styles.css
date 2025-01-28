@@ -161,10 +161,11 @@ body {
   }
 }
 
+/* Skills Section */
 .skills {
   padding: 2rem;
 }
-.skills .skills-header {
+.skills__header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -172,50 +173,54 @@ body {
   margin-bottom: 2.5rem;
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  .skills .skills-header {
+  .skills__header {
     flex-direction: row;
     align-items: center;
   }
 }
-.skills .skills-header h2 {
+.skills__title {
   font-size: 2rem;
   margin: 0;
   padding-left: 1rem;
 }
-.skills .skills-header p {
+.skills__description {
   font-size: 1rem;
   line-height: 1.6;
   margin: 1rem;
 }
-.skills .container {
+.skills__container {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 1rem;
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  .skills .container {
+  .skills__container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
   }
 }
 @media only screen and (max-width: 480px) {
-  .skills .container {
+  .skills__container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.skills .img-icon {
+.skills__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.skills__icon {
   max-width: 120px;
   height: auto;
   aspect-ratio: 1/1;
   object-fit: contain;
 }
-
-/* Hide skills section on mobile view */
 @media (max-width: 767px) {
   .skills {
     display: none;
   }
 }
+
 .portfolio-header h2 {
   width: 100%;
   text-align: left;

@@ -226,41 +226,36 @@ body {
 
 
 
-
-
-
-
-
-//Skills Section
+/* Skills Section */
 .skills {
     padding: 2rem;
 
-    .skills-header {
+    &__header {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem; // Space between h2 and paragraph
+        gap: 0.5rem; // Space between title and description
         margin-bottom: 2.5rem;
 
         @include devices.tablet {
-            flex-direction: row; // Arrange h2 and paragraph side by side on tablets and larger
+            flex-direction: row; // Arrange title and description side by side
             align-items: center;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin: 0;
-            padding-left: 1rem;
-        }
-
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin: 1rem;
         }
     }
 
-    .container {
+    &__title {
+        font-size: 2rem;
+        margin: 0;
+        padding-left: 1rem;
+    }
+
+    &__description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 1rem;
+    }
+
+    &__container {
         display: grid;
         grid-template-columns: repeat(9, 1fr);
         gap: 1rem;
@@ -275,20 +270,29 @@ body {
         }
     }
 
-    .img-icon {
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__icon {
         max-width: 120px;
         height: auto;
         aspect-ratio: 1 / 1;
         object-fit: contain;
     }
-}
 
-/* Hide skills section on mobile view */
-@media (max-width: 767px) {
-    .skills {
+    // Mobile View: Hide skills section
+    @media (max-width: 767px) {
         display: none;
     }
 }
+
+
+
+
+
 
 //Portfolio Section
 
