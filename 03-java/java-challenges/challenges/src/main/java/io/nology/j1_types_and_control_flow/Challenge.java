@@ -48,8 +48,26 @@ public class Challenge {
      *         length!" if they are of equal length
      */
     public String findLongestString(String string1, String string2) {
-        return "";
+        // Compare lengths of the two strings
+        if (string1.length() > string2.length()) {
+            return string1;
+        } else if (string2.length() > string1.length()) {
+            return string2;
+        } else {
+            return "These two are the same length!";
+        }
     }
+
+    /*public static void main(String[] args) {
+        Challenge challenge = new Challenge();
+
+        // Test cases
+        System.out.println(challenge.findLongestString("apple", "banana")); // Should return "banana"
+        System.out.println(challenge.findLongestString("hello", "world"));  // Should return "These two are the same length!"
+        System.out.println(challenge.findLongestString("cat", "elephant")); // Should return "elephant"
+    }
+}*/
+
 
     /**
      * A method to calculate a price discount. Given the price and the amount to be
@@ -60,10 +78,21 @@ public class Challenge {
      * @param discount The percentage discount available
      * @return returns the price with the discount applied
      */
-    public double getDiscount(double price, double discount) {
-        // Extra Challenge: How would this change if price & discount were int types?
-        return -1;
+    public double getDiscount(double price, double discount) {//double is a method to handle floating numbers
+     // Apply the discount formula
+        return price * (1 - (discount / 100.0));
+
+        //e.g. price = 100 and discount 20%
+        //step 1: calculate the decimal discount factor 20% into a decimal (float)
+        //20/100 = 0.20
+        //step 2: subtract the discount factor from 1
+        //1-0.20 = 0.80 (after applying the discount I'll be paying 80% fo the price)
+        //step 3: Multiply the Original Price by the Remaining Portion
+        //100.0 x 0.80 = 80.0
+        //discounted price is 80.
     }
+
+
 
     // -------------- INTERMEDIATE --------------
 
