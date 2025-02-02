@@ -28,7 +28,37 @@ public class Main {
         System.out.println("Discounted Price: $" + discountedPrice);
 
 
-        //Test
+        //Test the compare two numbers method
+        double number1 = 0.1234;
+        double number2 = 0.1234000;
+        double number3 = 0.12345;
+
+        // Testing with numbers that are equal to 4 decimal places
+        System.out.println(challenge.compareTwoNumbers(number1, number2)); // Should return true
+
+        // Testing with numbers that are not equal to 4 decimal places
+        System.out.println(challenge.compareTwoNumbers(number1, number3)); // Should return false
+
+
+        //Test the getDayName method
+
+        System.out.println(challenge.getDayName(0)); // Sunday
+        System.out.println(challenge.getDayName(3)); // Wednesday
+        System.out.println(challenge.getDayName(7)); // Invalid day range
+
+
+        //Test is even length word
+        System.out.println(challenge.isEvenWord("hello")); // Output: false
+        System.out.println(challenge.isEvenWord("even"));  // Output: true
+        System.out.println(challenge.isEvenWord(""));      // Output: false
+
+
+        //Tes it's leap year
+        System.out.println(challenge.leapYearChecker(2020)); // Output: true (leap year)
+        System.out.println(challenge.leapYearChecker(1900)); // Output: false (not a leap year)
+        System.out.println(challenge.leapYearChecker(2000)); // Output: true (leap year)
+        System.out.println(challenge.leapYearChecker(2023)); // Output: false (not a leap year)
+
     }
 }
 

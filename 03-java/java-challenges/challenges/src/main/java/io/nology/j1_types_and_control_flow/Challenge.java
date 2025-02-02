@@ -66,7 +66,7 @@ public class Challenge {
         System.out.println(challenge.findLongestString("hello", "world"));  // Should return "These two are the same length!"
         System.out.println(challenge.findLongestString("cat", "elephant")); // Should return "elephant"
     }
-}*/
+*/
 
 
     /**
@@ -98,7 +98,7 @@ public class Challenge {
 
     /***
      * A method to check whether 2 numbers are equal to 4 decimal places.
-     *
+
      * HINT: What happens if you do 0.1234 * 10000?
      *
      * @param num1 a double to be compared with the other parameter
@@ -106,47 +106,78 @@ public class Challenge {
      * @return a boolean to specify whether the 2 params match to 4 decimal places.
      */
     public boolean compareTwoNumbers(double num1, double num2) {
-        return true;
+        num1 = Math.round(num1 * 10000); // Round the number to the nearest integer...
+        num2 = Math.round(num2 * 10000); // ...to avoid precision issues when comparing floating-point numbers directly
+     // Compare the rounded values
+        return num1 == num2; // Return true if they are the same, false otherwise
+
+        //num1 and nm2 are variables of type double.
+        // the == compares the values and if they are exactly the same after rounding...
+        // ... then, the condition will evaluate to true, otherwise false.
     }
+
+
+
 
     /***
      * A method to determine which day of the week it is from a numeric input.
      * e.g 0 = "Sunday", 1 = "Monday" etc.
-     *
+
      * If the input is out of range return "Not a valid day range! The number needs
      * to be from 0-6"
-     *
+
      * EXTENSION Use a switch?
      * https://www.w3schools.com/java/java_switch.asp
      *
-     * @param day a Integer from 0-6 (that corresponds to the days of the week)
+     * @param day an Integer from 0-6 (that corresponds to the days of the week)
      * @return the day that corresponds to the number that was passed to the method
      *         as a parameter or "Not a valid
      *         day range! The number needs to be from 0-6" if param passed is
-     *         outside of the range
+     *         outside the range
      */
     public String getDayName(int day) {
-        return "";
+        return switch (day) {
+            case 0 -> "Sunday"; // -> switch expression and RETURN statement is not needed.
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            default -> "Not a valid day range! The number needs to be from 0-6";
+        };
     }
+
+
+
 
     /***
      * A method to check whether a word has an even length or not.
-     *
-     * If a empty string is given it should return false.
+
+     * If an empty string is given it should return false.
      *
      * @param word a String to be checked whether the string has an even length or
      *             not.
      * @return a boolean the result of the length check.
      */
     public boolean isEvenWord(String word) {
-        return true;
+
+        if (word.isEmpty()) {
+            return false;
+        }
+
+        // Check if the length of the word is even
+        return word.length() % 2 == 0; //even=, so it'll return true.
     }
+
+
+
 
     // -------------- ADVANCED --------------
 
     /***
      * A method to determine whether any given year is a leap year
-     *
+
      * A leap year occurs on:
      * - any year that is evenly divisible by 4
      * - except any year that is evenly divisible by 100 as well
@@ -156,7 +187,7 @@ public class Challenge {
      * @return returns true if it is a leap year, false if not
      */
     public boolean leapYearChecker(int year) {
-        return false;
+        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
     }
 
 }
