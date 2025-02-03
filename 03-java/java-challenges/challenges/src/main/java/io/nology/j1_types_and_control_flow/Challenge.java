@@ -82,6 +82,7 @@ public class Challenge {
      // Apply the discount formula
         return price * (1 - (discount / 100.0));
 
+
         //e.g. price = 100 and discount 20%
         //step 1: calculate the decimal discount factor 20% into a decimal (float)
         //20/100 = 0.20
