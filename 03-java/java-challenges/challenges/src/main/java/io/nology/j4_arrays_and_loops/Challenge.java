@@ -45,7 +45,7 @@ public class Challenge {
 
 
 
-//FROM HERE
+
     /**
      * A method to print characters between two given characters
      *
@@ -56,9 +56,16 @@ public class Challenge {
      * 
      */
     public void printCharactersBetween(char start, char end) {
-        return;
+        for (char c = start; c <= end; c++) { // Loops from 'A' to 'P'
+            System.out.print(c);// Prints each character without a newline
+        }
+        System.out.println(); // Move to the next line after printing
     }
 
+
+
+
+//FROM HERE
     /***
      * A method to find the middle item(s) in a given string array
      * 
