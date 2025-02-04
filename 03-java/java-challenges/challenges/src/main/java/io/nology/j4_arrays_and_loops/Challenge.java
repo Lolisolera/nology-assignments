@@ -56,19 +56,19 @@ public class Challenge {
      * 
      */
     public void printCharactersBetween(char start, char end) {
-        for (char c = start; c <= end; c++) { // Loops from 'A' to 'P'
-            System.out.print(c);// Prints each character without a newline
+        for (char i = start; i <= end; i++) { // Loops from 'A' to 'P'
+            System.out.print(i);// Prints each character without a newline
         }
-        System.out.println(); // Move to the next line after printing
+
     }
 
 
 
 
-//FROM HERE
+
     /***
      * A method to find the middle item(s) in a given string array
-     * 
+
      * If the array has an odd number of items, return an array containing the
      * single middle item.
      * If the array has an even number of items, return an array containing the two
@@ -79,9 +79,31 @@ public class Challenge {
      * @return an array containing the middle item(s)
      */
     public String[] findMiddleItems(String[] array) {
-        return new String[] {};
-    }
+        int length = array.length;
 
+        // If the array is empty, return an empty array
+        if (length == 0) {
+            return new String[]{};
+        }
+
+        // Find the middle index
+        int mid = length / 2;
+
+        // If the array has an odd number of items, return the single middle item
+        if (length % 2 == 1) {
+            return new String[]{array[mid]};
+        }
+
+        // If the array has an even number of items, return the two middle items
+        return new String[]{array[mid - 1], array[mid]};
+    }
+        //array[mid - 1] → Gets the element just before the middle.
+       //array[mid] → Gets the element just after the middle.
+      //new String[]{ ... } → Creates a new string array with these two values.
+
+
+
+//FROM HERE
     /***
      * A method to merge two sorted integer arrays into a single sorted array
      *
@@ -94,6 +116,9 @@ public class Challenge {
         return new int[] {};
     }
 
+
+
+
     /***
      * A method to find the sum of all odd numbers in an array
      *
@@ -103,6 +128,9 @@ public class Challenge {
     public int sumOfOddNumbers(int[] array) {
         return 1;
     }
+
+
+
 
     /***
      * A method to find the maximum subarray sum in a given integer array
@@ -120,6 +148,9 @@ public class Challenge {
     public int maxSubarraySum(int[] array) {
         return 1;
     }
+
+
+
 
     /**
      * A recursive method to calculate the factorial of a given positive integer
