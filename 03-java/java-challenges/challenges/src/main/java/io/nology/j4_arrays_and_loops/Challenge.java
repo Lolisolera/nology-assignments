@@ -103,7 +103,7 @@ public class Challenge {
 
 
 
-//FROM HERE
+
     /***
      * A method to merge two sorted integer arrays into a single sorted array
      *
@@ -113,7 +113,29 @@ public class Challenge {
      *         arrays
      */
     public int[] mergeSortedArrays(int[] array1, int[] array2) {
-        return new int[] {};
+        int i = 0, j = 0, k = 0;// i tracks position in array1, j tracks position in array2, k tracks position in merged array
+        int[] mergedArray = new int[array1.length + array2.length];
+
+        // Merge the arrays while both have elements remaining
+        while (i < array1.length && j < array2.length) {
+            if (array1[i] <= array2[j]) {
+                mergedArray[k++] = array1[i++];
+            } else {
+                mergedArray[k++] = array2[j++];
+            }
+        }
+
+        // Copy remaining elements from array1 (if any)
+        while (i < array1.length) {
+            mergedArray[k++] = array1[i++];
+        }
+
+        // Copy remaining elements from array2 (if any)
+        while (j < array2.length) {
+            mergedArray[k++] = array2[j++];
+        }
+
+        return mergedArray;
     }
 
 
@@ -126,9 +148,16 @@ public class Challenge {
      * @return the sum of all odd numbers in the array
      */
     public int sumOfOddNumbers(int[] array) {
-        return 1;
-    }
+        int sum = 0;
 
+        for (int num : array) {
+            if (num % 2 != 0) { // Check if the number is odd
+                sum += num;
+            }
+        }
+
+        return sum;
+    }
 
 
 
@@ -143,12 +172,32 @@ public class Challenge {
      * Output: -1
      *
      * @param array the input array of integers
-     * @return the maximum subarray sum
+     * @return the maximum subarray sum //
      */
     public int maxSubarraySum(int[] array) {
-        return 1;
+        if (array.length == 0) {
+            throw new IllegalArgumentException("Array cannot be empty");
+        }   //IllegalArgumentexception means
+
+        int maxSum = array[0];  // Store the max sum found so far
+        int currentSum = array[0];  // Track the sum of the current subarray
+
+        for (int i = 1; i < array.length; i++) {
+            // Decide whether to extend the current subarray or start a new one
+            currentSum = Math.max(array[i], currentSum + array[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+
+        return maxSum;
     }
 
+//EXPLAINED: used the Kadane's Algorithm which solves this problem in O(n) time complexity.
+    //O(n) -> we iterate through the array once
+    //1/Initialise maxSum to the first element (handles negative values correctly).
+    //2/Iterate through the array, deciding at each step:
+    //  Should we continue the current subarray (currentSum + array[i])?
+    //Or start fresh from array[i]?
+    //The max of these becomes the new currentSum.
 
 
 
@@ -160,7 +209,27 @@ public class Challenge {
      * @throws IllegalArgumentException if n is negative
      */
     public int calculateFactorial(int n) {
-        return 1;
+        if (n < 0) {
+            throw new IllegalArgumentException("Factorial is not defined for negative numbers.");
+        }
+        if (n == 0 || n == 1) {
+            return 1; // Base case: 0! = 1 and 1! = 1
+        }
+        return n * calculateFactorial(n - 1); // Recursive case: n! = n * (n-1)!
     }
+
+    //EXPLAINED: RECURSIVE APPROACH
+    //BASE CASE: If n == 0 or n == 1, return 1 (since 0! = 1! = 1).
+    //RECURSIVE CASE: Multiply n by calculateFactorial(n - 1),
+    // which keeps calling itself until it reaches 1.
+    //TIME COMPLEXITY: O(n) -> Since we call the function n times (one for each decrement).
+
+    //EDGE CASES CONSIDERED:
+    //Negative input → Throws IllegalArgumentException.
+    //Factorial of 0 and 1 → Correctly returns 1.
+    //Large numbers → Works but may cause stack overflow for very large n
+    // (use iteration instead for efficiency).
+
+    //This is a classic recursive implementation of factorial!
 
 }
