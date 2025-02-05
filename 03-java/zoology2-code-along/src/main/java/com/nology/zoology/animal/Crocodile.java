@@ -1,6 +1,8 @@
 package com.nology.zoology.animal;
 
 public class Crocodile extends Animal{
+//
+//    +++++++++++++
     public Crocodile(int id, String name, int age) {
         super(id, name, age);
     }
@@ -15,4 +17,8 @@ public class Crocodile extends Animal{
         return String.format("Animal with ID: %d, is called %s, and is %d " +
                 "years old", this.getId(), this.name, this.age);
     }
+//    +++++++++++++
+
+
+
 }

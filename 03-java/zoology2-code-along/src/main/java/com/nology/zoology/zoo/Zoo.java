@@ -1,5 +1,6 @@
 package com.nology.zoology.zoo;
 
+import com.nology.zoology.animal.Animal;
 import com.nology.zoology.animal.Crocodile;
 import com.nology.zoology.animal.Llama;
 import com.nology.zoology.animal.Tiger;
@@ -8,56 +9,45 @@ import java.util.ArrayList;
 
 
 public class Zoo {
-//    private int maxTigers = 10;
-//    private int tigerCounter = 0;
-//    private Tiger[] tigers = new Tiger[maxTigers];
+    public Zoo() {
+        System.out.println("Zoo starting up!");
+    }
 
-    private ArrayList<Tiger> tigers = new ArrayList<>();
-    private ArrayList<Llama> llamas = new ArrayList<>();
-    private ArrayList<Crocodile> crocodiles = new ArrayList<>();
+//    Arrays v. ArrayList<>
+//    1. arrays are fixed size v. ArrayList are resizable dynamically (it can
+//    grow to any size needed)
+//      2. array can hold primitives and objects v. ArrayList<> can only hold
+//      objects (Integer not int / Boolean not boolean etc)
+// array.length => arrayList.size()
+// array[i] = value => arrayList.add(value)
 
-    public ArrayList<Boolean> myNums = new ArrayList<Boolean>();
+    private final ArrayList<Animal> animals = new ArrayList<>();
 
+//Polymorphism - Method overloading
     public void addAnimal(Tiger tiger) {
-        this.tigers.add(tiger);
+        this.animals.add(tiger);
     }
+
     public void addAnimal(Crocodile croc) {
-        this.crocodiles.add(croc);
+        this.animals.add(croc);
     }
+
     public void addAnimal(Llama llama) {
-        this.llamas.add(llama);
+        this.animals.add(llama);
     }
 
     public int getAnimalCount() {
-        return this.tigers.size() + this.llamas.size() + this.crocodiles.size();
+        return this.animals.size();
     }
 
     public void listAnimals() {
-        for(Tiger tiger: tigers) {
-            System.out.println(tiger.getInformation());
+        for (Animal animal : animals) {
+            System.out.println(animal.getInformation());
         }
-        for(Llama llama: llamas) {
-            System.out.println(llama.getInformation());
-        }
-        for(Crocodile croc: crocodiles) {
-            System.out.println(croc.getInformation());
-        }
+
     }
 
-
-//
-//    public void addAnimal(Tiger tiger){
-//        if(this.tigerCounter >= this.maxTigers ) {
-//            int newMaxTigers = maxTigers * 2;
-//            Tiger[] newTigers = new Tiger[newMaxTigers];
-//            System.arraycopy(this.tigers, 0, newTigers, 0, this.tigers.length);
-//            this.maxTigers = newMaxTigers;
-//            this.tigers = newTigers;
-//        }
-//        this.tigers[tigerCounter++] = tiger;
-//    }
-
-
-
-
+    public void shutdownZoo() {
+        System.out.println("Zoo shutdown");
+    }
 }

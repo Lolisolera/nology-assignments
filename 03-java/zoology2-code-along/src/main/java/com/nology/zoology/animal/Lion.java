@@ -3,10 +3,14 @@ package com.nology.zoology.animal;
 // Lion IS-A Animal
 
 public class Lion extends Animal {
-    public Lion(int id, String name, int age) {
+    public boolean hasPack;
+
+    public Lion(int id, String name, int age, boolean hasPack) {
         // super is referencing the parent class
         super(id, name, age);
+        this.hasPack = hasPack;
     }
+
 
     @Override
     public String getInformation() {

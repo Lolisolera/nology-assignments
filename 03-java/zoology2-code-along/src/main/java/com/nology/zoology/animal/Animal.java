@@ -5,6 +5,8 @@ public class Animal {
     protected String name;
     protected int age;
 
+//    Animal(){};
+
     public Animal(int id, String name, int age) {
         this.id = id;
         this.name = name;
