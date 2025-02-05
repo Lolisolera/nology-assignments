@@ -44,7 +44,6 @@ public class Zoo {
         for (Animal animal : animals) {
             System.out.println(animal.getInformation());
         }
-
     }
 
     public void shutdownZoo() {
