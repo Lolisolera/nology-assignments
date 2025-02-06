@@ -4,8 +4,11 @@ public class Animal {
     private int id;
     protected String name;
     protected int age;
+    protected short hunger = 50;
+    private static final int HUNGER_LEVEL = 40;
 
-//    Animal(){};
+    // Can we have a way to know when an animal is hungry and when it should
+    // be fed?
 
     public Animal(int id, String name, int age) {
         this.id = id;
@@ -36,6 +39,25 @@ public class Animal {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public short getHunger() {
+        return hunger;
+    }
+
+    public void setHunger(short hunger) {
+        this.hunger = hunger;
+    }
+
+    public boolean isHungry() {
+        return this.hunger >= HUNGER_LEVEL;
+    };
+
+    public void feed() {
+        hunger -= 10;
+        makeSound();
+    }
+
+
 
     public void makeSound() {
         System.out.println("They say nothing ...");
