@@ -1,9 +1,6 @@
 package com.nology.zoology.zoo;
 
-import com.nology.zoology.animal.Animal;
-import com.nology.zoology.animal.Crocodile;
-import com.nology.zoology.animal.Llama;
-import com.nology.zoology.animal.Tiger;
+import com.nology.zoology.animal.*;
 
 import java.util.ArrayList;
 
@@ -36,6 +33,12 @@ public class Zoo {
         this.animals.add(llama);
     }
 
+    public void addAnimal(Lion lion) {
+        this.animals.add(lion);
+    }
+
+
+
     public int getAnimalCount() {
         return this.animals.size();
     }
@@ -49,4 +52,6 @@ public class Zoo {
     public void shutdownZoo() {
         System.out.println("Zoo shutdown");
     }
+
+
 }

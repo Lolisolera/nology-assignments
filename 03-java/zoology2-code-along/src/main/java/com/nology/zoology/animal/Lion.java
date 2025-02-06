@@ -5,10 +5,10 @@ package com.nology.zoology.animal;
 public class Lion extends Animal {
     public boolean hasPack;
 
-    public Lion(int id, String name, int age, boolean hasPack) {
+    public Lion(int id, String name, int age) {
         // super is referencing the parent class
         super(id, name, age);
-        this.hasPack = hasPack;
+        this.hasPack = true;
     }
 
 
