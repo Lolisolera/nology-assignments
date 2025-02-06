@@ -1,10 +1,6 @@
 package com.nology.zoology.animal;
 
-import com.nology.zoology.ZooPlayground;
-
-import java.security.cert.Extension;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class AnimalUtils {

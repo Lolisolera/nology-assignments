@@ -1,16 +1,7 @@
 package com.nology.zoology;
-
-import com.nology.zoology.animal.*;
-import com.nology.zoology.animal.AnimalUtils;
 import com.nology.zoology.command.UserCommandRunner;
 import com.nology.zoology.zoo.Zoo;
-import com.nology.zoology.zoo.ZooUtils;
-import com.nology.zoology.zoo.ZooUtils.*;
-
-
 import java.util.Random;
-
-import static com.nology.zoology.animal.AnimalUtils.*;
 import static com.nology.zoology.zoo.ZooUtils.*;
 
 public class ZooPlayground {
