@@ -10,7 +10,7 @@ $color-background: #fff;
 $color-highlight: #cfcfcf;
 
 * {
-    margin: 0;
+    margin-right: 10px;
     padding: 0;
     box-sizing: border-box;
 }
@@ -145,6 +145,7 @@ body {
 
     &__image {
         margin-bottom: 5rem;
+      
 
     }
 
