@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
-
 public class Main {
+   public static void main(String[]args){
+       DayOfWeek today  = DayOfWeek.FRIDAY;
+       System.out.println(today);
+       String friday = "Friday";
+   }
+
 }

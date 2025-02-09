@@ -8,24 +8,32 @@ public class AnimalTest {
 
     // Declare the animal object to be used in the tests
 
-    private Animal animal;
+    private Animal animal;//set to private to ensure that this instance of the animal
+    // is only accessible within the animal test
 
-    @BeforeEach
-    void setup() {
-        // Initialize the animal object before each test
-        animal = new Animal(1, "Josh", 44);
+    @BeforeEach //This is a JUnit annotation that tells the testing framework
+        // to run this method before each test case.
+    void setup() { //This method is used to prepare
+        // or set up any necessary test data before running tests.
+
+        animal = new Animal(1, "Josh", 44); // Initialize the animal object before each test
     }
 
-    @Test
-    void showsHunger_level() {
-        // Assuming getHunger() returns the hunger level
-        assertEquals(50, animal.getHunger());
+    @Test   //test notation
+    void showsHunger_level() {  //method name
+        // getHunger() returns the hunger level
+        assertEquals(50, animal.getHunger()); //checks if the expected value matches the actual output
     }
+
+    //getHunger( ) calls the method of the animal
+
+    // assertEquals is a JUnit assertion that checks if two values are the same.
+
 
 //getter tests:  id, name, age and hunger level
 
     @Test
-    void getId_showsId_returns1() {
+    void getId_showsId_returns1() { //method being tested, what it should do and expected outcome
         // Test to check if the ID is 1
         assertEquals(1, animal.getId());
     }

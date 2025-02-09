@@ -1,4 +1,7 @@
-package PACKAGE_NAME;
+public enum DayOfWeek {
+    FRIDAY("Friday"), SATURDAY("Saturday"), SUNDAY("Sunday");
 
-public class DayOfWeek {
+    DayOfWeek(String day){
+
+    }
 }
