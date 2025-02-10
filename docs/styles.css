@@ -12,6 +12,15 @@ body {
   font-size: 1rem;
 }
 
+#my-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
 .header {
   padding: 0.625rem 2rem;
 }
@@ -366,3 +375,5 @@ footer .socials ul li .cv {
     font-size: 1.6rem;
   }
 }
+
+/*# sourceMappingURL=styles.css.map */

@@ -202,7 +202,23 @@
             </div>
         </footer>
 
-
+  <!-- Background -->
+  <div id="my-background"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+  <script>
+    VANTA.BIRDS({
+      el: "#my-background",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      backgroundColor: 0xb8cafc
+    });
+  </script>
 
 </body>
 

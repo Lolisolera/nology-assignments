@@ -25,6 +25,17 @@ body {
 
 }
 
+//Background
+#my-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }  
+
+
 //Navbar section
 .header {
     padding: typography.$default-margin 2rem;
