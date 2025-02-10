@@ -1,3 +1,8 @@
+
 public enum AnimalType {
-    dog, cow, duck, swan;
+    MAMMAL,
+    BIRD,
+    INSECT,
+    FISH
 }
+

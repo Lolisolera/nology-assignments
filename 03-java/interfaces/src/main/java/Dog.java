@@ -1,7 +1,13 @@
 public class Dog extends Animal implements CanMakeSound {
 
+    public Dog() {
+        setName("Dog");
+        setLegs(4);
+    }
+
+    @Override
     public AnimalType getType() {
-        return AnimalType.dog;
+        return AnimalType.MAMMAL;
     }
 
     @Override
@@ -9,3 +15,4 @@ public class Dog extends Animal implements CanMakeSound {
         System.out.println("Woof!");
     }
 }
+
