@@ -1,9 +1,6 @@
 package com.nology.zoology.zoo;
 
-import com.nology.zoology.animal.Crocodile;
-import com.nology.zoology.animal.Lion;
-import com.nology.zoology.animal.Llama;
-import com.nology.zoology.animal.Tiger;
+import com.nology.zoology.animal.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -12,6 +9,7 @@ import static com.nology.zoology.animal.AnimalUtils.*;
 import static com.nology.zoology.animal.AnimalUtils.generateAge;
 
 public class ZooUtils {
+//    AnimalUtils animalUtils = new ...
     private static int maxLions;
     private static int maxLlamas;
     private static int maxTigers;

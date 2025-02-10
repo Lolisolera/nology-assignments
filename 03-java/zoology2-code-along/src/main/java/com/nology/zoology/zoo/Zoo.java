@@ -3,6 +3,7 @@ package com.nology.zoology.zoo;
 import com.nology.zoology.animal.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Zoo {
@@ -37,8 +38,6 @@ public class Zoo {
         this.animals.add(lion);
     }
 
-
-
     public int getAnimalCount() {
         return this.animals.size();
     }
@@ -48,6 +47,12 @@ public class Zoo {
             System.out.println(animal.getInformation());
         }
     }
+
+
+    public List<Animal> getAllAnimals() {
+        return this.animals;
+    }
+
 
     public void shutdownZoo() {
         System.out.println("Zoo shutdown");

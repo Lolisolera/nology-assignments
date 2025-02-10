@@ -1,5 +1,6 @@
 package com.nology.zoology.command;
 
+import com.nology.zoology.animal.Animal;
 import com.nology.zoology.user.UserType;
 import com.nology.zoology.zoo.Zoo;
 
@@ -18,7 +19,20 @@ public abstract class AnimalCommandRunner extends CommandRunner {
 
     protected void listAllAnimals() {
         printMessage("All animals in the zoo:");
-        zoo.listAnimals();
+        this.zoo.listAnimals();
+    }
+
+    protected void runSingleAnimalCommands() {
+        SingleAnimalCommandRunner commandRunner = null;
+        switch (userType) {
+            case visitor:
+                commandRunner = new VisitorSingleAnimalCommandRunner(zoo, null);
+                break;
+            case zooKeeper:
+                commandRunner = new ZooKeeperSingleAnimalCommandRunner(zoo, null);
+                break;
+        }
+        commandRunner.runCommands();
     }
 
     @Override
@@ -36,6 +50,9 @@ public abstract class AnimalCommandRunner extends CommandRunner {
         switch (userSelection) {
             case 1:
                 listAllAnimals();
+                break;
+            case 2:
+                runSingleAnimalCommands();
                 break;
         }
 

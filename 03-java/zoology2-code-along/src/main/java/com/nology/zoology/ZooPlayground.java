@@ -1,6 +1,11 @@
 package com.nology.zoology;
+import com.nology.zoology.animal.AnimalUtils;
+import com.nology.zoology.animal.Crocodile;
+import com.nology.zoology.animal.Llama;
 import com.nology.zoology.command.UserCommandRunner;
 import com.nology.zoology.zoo.Zoo;
+import com.nology.zoology.zoo.ZooUtils;
+
 import java.util.Random;
 import static com.nology.zoology.zoo.ZooUtils.*;
 
@@ -12,6 +17,17 @@ public class ZooPlayground {
 //        Abstraction
 //        Encapsulation
 //        Polymorphism pt.1
+
+        Crocodile myCroc = new Crocodile(AnimalUtils.nextUniqueId(),
+                AnimalUtils.generateName(),AnimalUtils.generateAge());
+
+        Llama lla = new Llama(AnimalUtils.nextUniqueId(),
+                AnimalUtils.generateName(),AnimalUtils.generateAge());
+
+        System.out.println(myCroc.getType().isPettable());
+        System.out.println(lla.getType().isPettable());
+
+
 
         Zoo myZoo = new Zoo();
 
@@ -26,4 +42,3 @@ public class ZooPlayground {
     }
 
 }
-

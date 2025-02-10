@@ -22,4 +22,9 @@ public class Lion extends Animal {
     public void makeSound() {
         System.out.println("Rooaaaaaarrrr!!!!!");
     }
+
+    @Override
+    public AnimalType getType() {
+        return AnimalType.lion;
+    }
 }
