@@ -9,6 +9,7 @@ $color-text: #000;
 $color-background: #fff;
 $color-highlight: #cfcfcf;
 
+
 * {
     margin-right: 8px;
     padding: 0;
@@ -120,6 +121,7 @@ body {
 
 // About Section
 .about {
+
     padding: 2rem;
     @include devices.tablet {
         padding: 2rem 6rem;
